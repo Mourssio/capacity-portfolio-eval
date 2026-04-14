@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1776192812.17971 "main.aux" "main.bbl" "main" 1776192814.37042 0
+["bibtex main"] 1776193391.61907 "main.aux" "main.bbl" "main" 1776193393.73448 0
   "./references.bib" 1776186609 2971 b6e4a3b706e868428315aa402362795c ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/bibtex/bst/natbib/plainnat.bst" 1284455456 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1776192813 15106 315baed6b48dc9d54ccb38df8969f279 "pdflatex"
+  "main.aux" 1776193393 14151 f9a1820e4d7d558f11994290abf89b1d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1776192812.38437 "c:/Users/Omar Elsawi/OneDrive - University of Toronto/MIE1613/Project Report/capacity-portfolio-eval-v3-final_2/report/main.tex" "main.pdf" "main" 1776192814.37094 0
+["pdflatex"] 1776193391.82226 "c:/Users/Omar Elsawi/OneDrive - University of Toronto/MIE1613/Project Report/capacity-portfolio-eval-v3-final_2/report/main.tex" "main.pdf" "main" 1776193393.73495 0
   "C:/Users/Omar Elsawi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775322734 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Omar Elsawi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1776097901 11548 59001d432356cd02ea33081f3fed1cc0 ""
   "C:/Users/Omar Elsawi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1773869635 12668 f4eaf9736e188e6e75e165c4ba72de8b ""
@@ -110,7 +110,7 @@
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1670403145 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/Omar Elsawi/OneDrive - University of Toronto/MIE1613/Project Report/capacity-portfolio-eval-v3-final_2/report/main.tex" 1776192809 37113 248b4fe3a20a3a43a4182236113a0c7e ""
+  "c:/Users/Omar Elsawi/OneDrive - University of Toronto/MIE1613/Project Report/capacity-portfolio-eval-v3-final_2/report/main.tex" 1776193389 35870 cbbe6a8583a1fd1f66af92035b722e24 ""
   "figures/fig10_adequacy_search.png" 1776187627 124292 a1df5e552fda7be87999b8cd34599fb9 ""
   "figures/fig12_ucap_comparison.png" 1776187661 148559 11d6facc46e0263d25ea32af809a0fe1 ""
   "figures/fig1_mean_y_bar.png" 1776187442 57475 4db21defa53bf0a2828170583654f05d ""
@@ -120,14 +120,13 @@
   "figures/fig6_dbg.png" 1776187443 57460 e457b52acc9e5b24825c16c6f18b9343 ""
   "figures/fig7_crn_efficiency.png" 1776187472 71110 e4a15563ba7901b930e5f1d6b728d152 ""
   "figures/fig8_cost_decomposition.png" 1776187472 70543 cde8c9031d57643944eee5744ad928ff ""
-  "figures/fig9_rhw_convergence.png" 1776187472 88079 2006447c8e3924be78ede46495d6cfa9 ""
   "figures/input_demand_fit.png" 1775341312 271216 2a93eea7a5f26756f349065b6de00bb4 ""
   "figures/input_solar_fit.png" 1775341312 72688 b11736839a1f22a2486d9cdfd3a9bb72 ""
   "figures/input_wind_fit.png" 1775341312 70803 ec9c1bbc113d4e2402a542ef3dd78ce4 ""
-  "main.aux" 1776192813 15106 315baed6b48dc9d54ccb38df8969f279 "pdflatex"
-  "main.bbl" 1776192812 3229 50acf8ae3ac03b438cd80dae4c15a04c "bibtex main"
-  "main.out" 1776192813 4879 afb502b0732372791d38311caef16d91 "pdflatex"
-  "main.tex" 1776192809 37113 248b4fe3a20a3a43a4182236113a0c7e ""
+  "main.aux" 1776193393 14151 f9a1820e4d7d558f11994290abf89b1d "pdflatex"
+  "main.bbl" 1776193391 3229 50acf8ae3ac03b438cd80dae4c15a04c "bibtex main"
+  "main.out" 1776193393 4662 fe96664ef8baadfcbf430eadad110f07 "pdflatex"
+  "main.tex" 1776193389 35870 cbbe6a8583a1fd1f66af92035b722e24 ""
   (generated)
   "main.aux"
   "main.log"

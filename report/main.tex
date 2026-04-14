@@ -296,7 +296,7 @@ Three methodological contributions merit emphasis. First, the NORTA AR(1) model 
 \paragraph{Discussion.}
 The results collectively address both research questions. Research Question~1 is answered by the deterministic benchmark gap: the preferred portfolio changes from P03 under deterministic evaluation to P04 under stochastic evaluation, with a cost consequence of \$3,968M per year. Research Question~2 is answered by the factorial analysis: demand noise and forced outages are the dominant uncertainty factors by main effect magnitude, but no tested factor combination changes the identity of the best portfolio. The recommendation is therefore robust to uncertainty calibration within the tested range.
 
-These findings are consistent with the central insight of \citet{ParkBaldick2016}, who show that incorporating uncertainty into capacity planning can change the preferred resource mix. Their study demonstrates this for expansion timing decisions in a multi-stage stochastic program; the present study demonstrates the analogous result for portfolio ranking under a fixed-budget constraint. The methodological difference is consequential: whereas Park and Baldick jointly optimize build decisions and uncertainty realizations, this study takes candidate portfolios as given and applies formal statistical selection (KN with CRN) to identify the best performer. The shared conclusion is that deterministic planning can systematically undervalue firm capacity by failing to account for the tail risk introduced by correlated renewable shortfalls and generator outages (Appendix~\ref{app:comparison}).
+These findings are consistent with the central insight of \citet{ParkBaldick2016}, who show that incorporating uncertainty into capacity planning can change the preferred resource mix. Their study demonstrates this for expansion timing decisions in a multi-stage stochastic program; the present study demonstrates the analogous result for portfolio ranking under a fixed-budget constraint. The methodological difference is consequential: whereas Park and Baldick jointly optimize build decisions and uncertainty realizations, this study takes candidate portfolios as given and applies formal statistical selection (KN with CRN) to identify the best performer. The shared conclusion is that deterministic planning can systematically undervalue firm capacity by failing to account for the tail risk introduced by correlated renewable shortfalls and generator outages.
 
 \paragraph{Limitations.}
 (1)~Demand noise is iid, which may overstate extreme event frequency.
@@ -398,29 +398,6 @@ P15 & 60/10/30 & 7,200 & 1,200 & 3,600 & 1,736 \\
 \end{table}
 
 
-\section{Comparison with Park and Baldick}\label{app:comparison}
-
-\begin{table}[H]
-\centering
-\caption{Comparison with \citet{ParkBaldick2016}.}\label{tab:comparison}
-\small
-\begin{tabular}{lll}
-\toprule
-Dimension & Park \& Baldick & This study \\
-\midrule
-Objective     & Optimize expansion    & Evaluate fixed portfolios \\
-Method        & Multi-stage stoch.\ prog.\ & Monte Carlo + KN R\&S \\
-Demand        & Scenario-based growth & Calibrated profile + noise \\
-Renewables    & Scenario-based wind   & NORTA AR(1) Beta CFs \\
-Temporal      & Representative periods & 8,760-hr chronological \\
-Selection     & Optimization          & Statistical ranking \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Both studies demonstrate that uncertainty can change the preferred resource mix. Park and Baldick show this for expansion timing; this study shows it for portfolio ranking under a fixed-budget constraint using formal statistical selection.
-
-
 \section{ELCC Values}\label{app:elcc}
 
 \begin{table}[H]
@@ -482,12 +459,6 @@ Storage (4h) & 50\% & Duration-limited \\
 \centering
 \includegraphics[width=0.95\textwidth]{figures/fig7_crn_efficiency.png}
 \caption{CRN variance reduction: pairwise difference variance under independent vs.\ CRN sampling. Efficiency ranges from 2$\times$ (P04 vs.\ P09) to 35$\times$ (P03 vs.\ P09).}\label{fig:crn}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/fig9_rhw_convergence.png}
-\caption{Relative half-width convergence. All top-4 portfolios achieve RHW $< 1\%$ by $n = 200$; the 5\% target is met by $n \approx 15$.}\label{fig:rhw}
 \end{figure}
 
 \begin{figure}[H]
