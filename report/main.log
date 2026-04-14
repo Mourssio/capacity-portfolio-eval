@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.19)  14 APR 2026 13:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.19)  14 APR 2026 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -495,24 +495,24 @@ File: figures/fig2_kn_elimination.png Graphic file (type png)
 <use figures/fig2_kn_elimination.png>
 Package pdftex.def Info: figures/fig2_kn_elimination.png  used on input line 16
 8.
-(pdftex.def)             Requested size: 422.77664pt x 233.93185pt.
+(pdftex.def)             Requested size: 455.66293pt x 252.1333pt.
  [5]
 <figures/fig8_cost_decomposition.png, id=233, 568.524pt x 351.714pt>
 File: figures/fig8_cost_decomposition.png Graphic file (type png)
 <use figures/fig8_cost_decomposition.png>
 Package pdftex.def Info: figures/fig8_cost_decomposition.png  used on input lin
 e 191.
-(pdftex.def)             Requested size: 399.29463pt x 247.02997pt.
+(pdftex.def)             Requested size: 446.26582pt x 276.08537pt.
 <figures/fig6_dbg.png, id=235, 421.0932pt x 324.7332pt>
 File: figures/fig6_dbg.png Graphic file (type png)
 <use figures/fig6_dbg.png>
 Package pdftex.def Info: figures/fig6_dbg.png  used on input line 205.
-(pdftex.def)             Requested size: 399.29463pt x 307.93982pt.
+(pdftex.def)             Requested size: 446.26582pt x 344.166pt.
 <figures/fig4_tornado.png, id=237, 597.432pt x 286.1892pt>
 File: figures/fig4_tornado.png Graphic file (type png)
 <use figures/fig4_tornado.png>
 Package pdftex.def Info: figures/fig4_tornado.png  used on input line 215.
-(pdftex.def)             Requested size: 399.29463pt x 191.27849pt.
+(pdftex.def)             Requested size: 446.26582pt x 213.78107pt.
  [6 <./figures/fig2_kn_elimination.png>] [7 <./figures/fig8_cost_decomposition.
 png>] [8 <./figures/fig6_dbg.png>] (main.bbl
 Underfull \hbox (badness 4713) in paragraph at lines 17--23
@@ -553,45 +553,43 @@ Package pdftex.def Info: figures/input_solar_fit.png  used on input line 403.
 File: figures/fig1_mean_y_bar.png Graphic file (type png)
 <use figures/fig1_mean_y_bar.png>
 Package pdftex.def Info: figures/fig1_mean_y_bar.png  used on input line 412.
-(pdftex.def)             Requested size: 399.29463pt x 240.78821pt.
+(pdftex.def)             Requested size: 446.26582pt x 269.11069pt.
  [14 <./figures/input_wind_fit.png> <./figures/input_solar_fit.png>]
 <figures/fig3_y_distributions.png, id=316, 540.0978pt x 327.1422pt>
 File: figures/fig3_y_distributions.png Graphic file (type png)
 <use figures/fig3_y_distributions.png>
 Package pdftex.def Info: figures/fig3_y_distributions.png  used on input line 4
 18.
-(pdftex.def)             Requested size: 399.29463pt x 241.8568pt.
-<figures/fig7_crn_efficiency.png, id=317, 713.064pt x 351.714pt>
+(pdftex.def)             Requested size: 446.26582pt x 270.30496pt.
+
+[15 <./figures/fig1_mean_y_bar.png>]
+<figures/fig7_crn_efficiency.png, id=323, 713.064pt x 351.714pt>
 File: figures/fig7_crn_efficiency.png Graphic file (type png)
 <use figures/fig7_crn_efficiency.png>
 Package pdftex.def Info: figures/fig7_crn_efficiency.png  used on input line 42
 4.
-(pdftex.def)             Requested size: 399.29463pt x 196.95313pt.
-
-[15 <./figures/fig1_mean_y_bar.png> <./figures/fig3_y_distributions.png>]
-<figures/fig9_rhw_convergence.png, id=326, 568.524pt x 351.714pt>
+(pdftex.def)             Requested size: 446.26582pt x 220.12662pt.
+<figures/fig9_rhw_convergence.png, id=324, 568.524pt x 351.714pt>
 File: figures/fig9_rhw_convergence.png Graphic file (type png)
 <use figures/fig9_rhw_convergence.png>
 Package pdftex.def Info: figures/fig9_rhw_convergence.png  used on input line 4
 30.
-(pdftex.def)             Requested size: 399.29463pt x 247.02997pt.
-<figures/fig10_adequacy_search.png, id=327, 857.604pt x 356.532pt>
+(pdftex.def)             Requested size: 446.26582pt x 276.08537pt.
+ [16 <./figures/fig3_y_distributions.png> <./figures/fig7_crn_efficiency.png>]
+<figures/fig10_adequacy_search.png, id=332, 857.604pt x 356.532pt>
 File: figures/fig10_adequacy_search.png Graphic file (type png)
 <use figures/fig10_adequacy_search.png>
 Package pdftex.def Info: figures/fig10_adequacy_search.png  used on input line 
 436.
-(pdftex.def)             Requested size: 399.29463pt x 165.99782pt.
-
-[16 <./figures/fig7_crn_efficiency.png> <./figures/fig9_rhw_convergence.png>]
-<figures/fig12_ucap_comparison.png, id=335, 939.51pt x 361.35pt>
+(pdftex.def)             Requested size: 446.26582pt x 185.52283pt.
+<figures/fig12_ucap_comparison.png, id=333, 939.51pt x 361.35pt>
 File: figures/fig12_ucap_comparison.png Graphic file (type png)
 <use figures/fig12_ucap_comparison.png>
 Package pdftex.def Info: figures/fig12_ucap_comparison.png  used on input line 
 442.
-(pdftex.def)             Requested size: 399.29463pt x 153.57448pt.
-
-[17 <./figures/fig10_adequacy_search.png> <./figures/fig12_ucap_comparison.png>
-] [18] (main.aux)
+(pdftex.def)             Requested size: 446.26582pt x 171.63751pt.
+ [17 <./figures/fig9_rhw_convergence.png> <./figures/fig10_adequacy_search.png>
+] [18 <./figures/fig12_ucap_comparison.png>] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -606,7 +604,7 @@ Here is how much of TeX's memory you used:
  41233 multiletter control sequences out of 15000+600000
  638836 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,831b,567s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,831b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Omar Elsawi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm1000.pk> <C:\Users\Omar Elsawi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\tcrm1095.pk><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/f
@@ -629,7 +627,7 @@ ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/O
 mar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on main.pdf (18 pages, 1210150 bytes).
+Output written on main.pdf (18 pages, 1210136 bytes).
 PDF statistics:
  444 PDF objects out of 1000 (max. 8388607)
  97 named destinations out of 1000 (max. 500000)
