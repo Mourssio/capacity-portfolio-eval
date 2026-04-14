@@ -54,7 +54,7 @@ def plot_ucap_comparison(equal_mw, ucap_norm, portfolios, top_k, target_ucap, uc
       Left: UCAP-normalized cost bar chart (all portfolios in ucap_set)
       Right: Cost decomposition stacked bar under UCAP normalization
     """
-    fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+    fig, axes = plt.subplots(1, 2, figsize=(16, 7))
     n_colors = max(len(ucap_set), 8)
     cmap = plt.cm.get_cmap('tab10', n_colors)
     colors = [cmap(i) for i in range(len(ucap_set))]
@@ -75,12 +75,13 @@ def plot_ucap_comparison(equal_mw, ucap_norm, portfolios, top_k, target_ucap, uc
     for idx in range(len(sorted_set)):
         ax.text(idx, y_vals[idx] + max(y_vals)*0.02,
                 f'${y_vals[idx]:,.0f}\n({mw_vals[idx]:.1f} GW)',
-                ha='center', fontsize=7, fontweight='bold')
+                ha='center', fontsize=9, fontweight='bold')
     ax.set_xticks(range(len(sorted_set)))
-    ax.set_xticklabels(sorted_labels, fontsize=8, rotation=30, ha='right')
-    ax.set_ylabel('Mean Total Cost Y ($M)')
-    ax.set_title(f'UCAP-Normalized Cost (Target = {target_ucap/1000:.0f} GW UCAP)')
+    ax.set_xticklabels(sorted_labels, fontsize=10, rotation=25, ha='right')
+    ax.set_ylabel('Mean Total Cost Y ($M)', fontsize=12)
+    ax.set_title(f'UCAP-Normalized Cost (Target = {target_ucap/1000:.0f} GW UCAP)', fontsize=13)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'${v:,.0f}'))
+    ax.set_ylim(0, max(y_vals) * 1.15)
 
     # Panel 2: Stacked cost decomposition (sorted same way)
     ax = axes[1]
@@ -99,14 +100,16 @@ def plot_ucap_comparison(equal_mw, ucap_norm, portfolios, top_k, target_ucap, uc
            edgecolor='black', linewidth=0.3)
 
     ax.set_xticks(range(len(sorted_set)))
-    ax.set_xticklabels(sorted_labels, fontsize=8, rotation=30, ha='right')
-    ax.set_ylabel('Annual Cost ($M)')
-    ax.set_title('UCAP-Normalized Cost Decomposition')
-    ax.legend(fontsize=8, loc='upper left')
+    ax.set_xticklabels(sorted_labels, fontsize=10, rotation=25, ha='right')
+    ax.set_ylabel('Annual Cost ($M)', fontsize=12)
+    ax.set_title('UCAP-Normalized Cost Decomposition', fontsize=13)
+    ax.legend(fontsize=10, loc='upper left')
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'${v:,.0f}'))
+    totals = [f + c + p for f, c, p in zip(F_vals, C_vals, P_vals)]
+    ax.set_ylim(0, max(totals) * 1.12)
 
     fig.suptitle('UCAP-Normalized Comparison: Equal Effective Capacity Across Mixes',
-                 fontsize=12, fontweight='bold')
+                 fontsize=14, fontweight='bold')
     fig.tight_layout()
     fig.savefig(os.path.join(FIGURE_DIR, 'fig12_ucap_comparison.png'), dpi=150)
     plt.close(fig)

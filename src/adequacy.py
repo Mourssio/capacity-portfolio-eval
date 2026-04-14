@@ -136,7 +136,7 @@ def plot_adequacy_results(results, portfolios, top_k):
       Left: minimum adequate capacity per portfolio (bar chart)
       Right: annualized cost at adequate capacity (stacked: fixed + operating)
     """
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
     labels = [portfolios[i].label for i in top_k]
     x = np.arange(len(top_k))
@@ -148,12 +148,13 @@ def plot_adequacy_results(results, portfolios, top_k):
     ax.axhline(TOTAL_CAPACITY_MW / 1000, color='black', linestyle='--', linewidth=1,
                label=f'Fixed budget ({TOTAL_CAPACITY_MW/1000:.0f} GW)')
     for idx, c in enumerate(caps):
-        ax.text(x[idx], c + 0.2, f'{c:.1f} GW', ha='center', fontsize=9, fontweight='bold')
+        ax.text(x[idx], c + 0.3, f'{c:.1f} GW', ha='center', fontsize=11, fontweight='bold')
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=9)
-    ax.set_ylabel('Total Installed Capacity (GW)')
-    ax.set_title('Minimum Capacity for Adequacy (EUE ~= 0)')
-    ax.legend(fontsize=8)
+    ax.set_xticklabels(labels, fontsize=11)
+    ax.set_ylabel('Total Installed Capacity (GW)', fontsize=12)
+    ax.set_title('Minimum Capacity for Adequacy (EUE ~= 0)', fontsize=13)
+    ax.legend(fontsize=10)
+    ax.set_ylim(0, max(caps) * 1.15)
 
     # Right panel: annualized cost at adequate capacity
     ax = axes[1]
@@ -164,16 +165,17 @@ def plot_adequacy_results(results, portfolios, top_k):
 
     for idx in range(len(top_k)):
         ax.text(x[idx], costs[idx] + max(costs) * 0.02,
-                f'${costs[idx]:,.0f}M', ha='center', fontsize=9, fontweight='bold')
+                f'${costs[idx]:,.0f}M', ha='center', fontsize=11, fontweight='bold')
 
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=9)
-    ax.set_ylabel('Annualized Fixed Cost ($M)')
-    ax.set_title('Cost of Adequacy: Capital Required for Reliable Supply')
+    ax.set_xticklabels(labels, fontsize=11)
+    ax.set_ylabel('Annualized Fixed Cost ($M)', fontsize=12)
+    ax.set_title('Cost of Adequacy: Capital Required for Reliable Supply', fontsize=13)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'${v:,.0f}M'))
+    ax.set_ylim(0, max(costs) * 1.12)
 
     fig.suptitle('Stochastic Adequacy Search: Minimum Capacity for Zero Unserved Energy',
-                 fontsize=12, fontweight='bold')
+                 fontsize=14, fontweight='bold')
     fig.tight_layout()
     fig.savefig(os.path.join(FIGURE_DIR, 'fig10_adequacy_search.png'), dpi=150)
     plt.close(fig)

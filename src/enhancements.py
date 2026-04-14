@@ -84,7 +84,7 @@ def plot_crn_efficiency(results, portfolios, top_k):
     from itertools import combinations
     pairs = list(combinations(top_k, 2))
 
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(12, 6))
     x = np.arange(len(pairs))
     width = 0.35
 
@@ -99,14 +99,15 @@ def plot_crn_efficiency(results, portfolios, top_k):
     for idx, p in enumerate(pairs):
         ratio = results[p]['efficiency_ratio']
         ax.annotate(f'{ratio:.1f}x', xy=(x[idx], max(var_ind[idx], var_crn[idx])),
-                    xytext=(0, 8), textcoords='offset points', ha='center',
-                    fontsize=9, fontweight='bold', color='black')
+                    xytext=(0, 10), textcoords='offset points', ha='center',
+                    fontsize=11, fontweight='bold', color='black')
 
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=8)
-    ax.set_ylabel('Var(Y_i - Y_l) (x10^12 $^2)')
-    ax.set_title('CRN Variance Reduction: Pairwise Difference Variance')
-    ax.legend()
+    ax.set_xticklabels(labels, fontsize=10)
+    ax.set_ylabel(r'Var$(Y_i - Y_l)$ $(\times 10^{12}\;\$^2)$', fontsize=12)
+    ax.set_title('CRN Variance Reduction: Pairwise Difference Variance', fontsize=14)
+    ax.legend(fontsize=11)
+    ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.0f}'))
 
     fig.tight_layout()
     fig.savefig(os.path.join(FIGURE_DIR, 'fig7_crn_efficiency.png'), dpi=150)
@@ -136,17 +137,18 @@ def plot_cost_decomposition(components, portfolios, top_k):
                     edgecolor='black', linewidth=0.3)
 
     # Annotate totals
+    totals = [F[idx] + C[idx] + P[idx] for idx in range(len(top_k))]
     for idx in range(len(top_k)):
-        total = F[idx] + C[idx] + P[idx]
-        ax.text(x[idx], total + max(P) * 0.03, f'${total:,.0f}M',
-                ha='center', va='bottom', fontsize=9, fontweight='bold')
+        ax.text(x[idx], totals[idx] + max(totals) * 0.02, f'${totals[idx]:,.0f}M',
+                ha='center', va='bottom', fontsize=10, fontweight='bold')
 
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=10)
+    ax.set_xticklabels(labels, fontsize=11)
     ax.set_ylabel('Annual Cost ($M)')
     ax.set_title('Cost Decomposition: Fixed + Operating + Adequacy Penalty')
-    ax.legend(loc='upper left', fontsize=9)
+    ax.legend(loc='upper left', fontsize=10)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'${v:,.0f}M'))
+    ax.set_ylim(0, max(totals) * 1.12)
 
     fig.tight_layout()
     fig.savefig(os.path.join(FIGURE_DIR, 'fig8_cost_decomposition.png'), dpi=150)

@@ -62,14 +62,15 @@ def fig1_mean_y_bar(results, portfolios):
 
     # Annotate bars
     for bar, mean in zip(bars, means):
-        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + max(errors)*0.3,
-                f'${mean:,.0f}M', ha='center', va='bottom', fontsize=9)
+        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + max(errors)*0.5,
+                f'${mean:,.0f}M', ha='center', va='bottom', fontsize=10, fontweight='bold')
 
     ax.set_xticks(range(len(top_k)))
-    ax.set_xticklabels(labels, fontsize=10)
+    ax.set_xticklabels(labels, fontsize=11)
     ax.set_ylabel('Mean Annual Cost ($M)')
     ax.set_title('Portfolio Performance: Mean $Y_i$ with 95% Confidence Intervals')
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'${x:,.0f}M'))
+    ax.set_ylim(0, max(means) * 1.15)
 
     # Mark the KN-selected best
     best_idx_in_topk = top_k.index(results['kn']['selected'])
@@ -86,32 +87,47 @@ def fig2_kn_elimination(results, portfolios):
     if not log:
         return
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(11, 7))
 
-    # Sort by elimination stage, then by mean at elimination
-    stages = [entry[0] for entry in log]
-    elim_ids = [entry[1] for entry in log]
-    elim_means = [entry[2] / 1e6 for entry in log]
+    # Collect all annotation positions for overlap avoidance
+    annot_positions = []
+    for i, (stage, pid, mean, _, _) in enumerate(log):
+        annot_positions.append((stage, mean / 1e6, portfolios[pid].label))
 
-    # Plot elimination events
+    # Sort by y-value within the same stage to stagger labels
+    from collections import defaultdict
+    stage_groups = defaultdict(list)
+    for stage, y, label in annot_positions:
+        stage_groups[stage].append((y, label))
+
     for i, (stage, pid, mean, _, _) in enumerate(log):
         ax.scatter(stage, mean / 1e6, s=80, zorder=5, color=COLORS[i % len(COLORS)])
-        ax.annotate(portfolios[pid].label, (stage, mean / 1e6),
-                    textcoords="offset points", xytext=(8, 3), fontsize=7)
+
+    # Stagger labels per stage to avoid overlap
+    for stage, items in stage_groups.items():
+        items.sort(key=lambda t: t[0], reverse=True)
+        for rank, (y, label) in enumerate(items):
+            x_off = 10 + (rank % 2) * 30
+            y_off = 5 - rank * 2
+            ax.annotate(label, (stage, y),
+                        textcoords="offset points", xytext=(x_off, y_off),
+                        fontsize=8, ha='left',
+                        arrowprops=dict(arrowstyle='-', color='gray',
+                                        lw=0.5, shrinkA=0, shrinkB=3))
 
     # Mark the selected best
     best = results['kn']['selected']
     final_mean = results['kn']['final_means'][best] / 1e6
     ax.scatter(results['kn']['total_reps'], final_mean,
-               s=120, marker='*', color='red', zorder=10, label='Selected')
+               s=150, marker='*', color='red', zorder=10, label='Selected')
     ax.annotate(f'{portfolios[best].label}\n(Selected)',
                 (results['kn']['total_reps'], final_mean),
                 textcoords="offset points", xytext=(10, -10),
-                fontsize=9, fontweight='bold', color='red')
+                fontsize=10, fontweight='bold', color='red')
 
-    ax.set_xlabel('Replication Stage')
-    ax.set_ylabel('Sample Mean ($M)')
-    ax.set_title('Kim-Nelson Elimination Timeline')
+    ax.set_xlabel('Replication Stage', fontsize=12)
+    ax.set_ylabel('Sample Mean ($M)', fontsize=12)
+    ax.set_title('Kim-Nelson Elimination Timeline', fontsize=14)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'${x:,.0f}M'))
 
     fig.savefig(os.path.join(FIGURE_DIR, 'fig2_kn_elimination.png'))
