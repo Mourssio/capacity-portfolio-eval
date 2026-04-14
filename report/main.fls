@@ -1,6 +1,6 @@
-PWD C:\Users\Omar Elsawi\OneDrive - University of Toronto\MIE1613\Project Report\capacity-portfolio-eval-v3-final_2\report
+PWD c:\Users\Omar Elsawi\OneDrive - University of Toronto\MIE1613\Project Report\capacity-portfolio-eval-v3-final_2\report
 INPUT C:\Users\Omar Elsawi\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT main.tex
+INPUT c:\Users\Omar Elsawi\OneDrive - University of Toronto\MIE1613\Project Report\capacity-portfolio-eval-v3-final_2\report\main.tex
 OUTPUT main.log
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
