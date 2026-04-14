@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.19)  13 APR 2026 19:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.19)  14 APR 2026 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -515,53 +515,53 @@ Package pdftex.def Info: figures/fig4_tornado.png  used on input line 215.
 (pdftex.def)             Requested size: 399.29463pt x 191.27849pt.
  [6 <./figures/fig2_kn_elimination.png>] [7 <./figures/fig8_cost_decomposition.
 png>] [8 <./figures/fig6_dbg.png>] (main.bbl
-Underfull \hbox (badness 4713) in paragraph at lines 16--22
+Underfull \hbox (badness 4713) in paragraph at lines 17--23
 []\OT1/cmr/m/n/10.95 Independent Elec-tric-ity Sys-tem Op-er-a-tor.  2025 an-nu
 al plan-ning out-look.  Tech-ni-
  []
 
 
-Underfull \hbox (badness 6332) in paragraph at lines 16--22
+Underfull \hbox (badness 6332) in paragraph at lines 17--23
 \OT1/cmr/m/n/10.95 cal re-port, In-de-pen-dent Elec-tric-ity Sys-tem Op-er-a-to
 r (IESO), April 2025.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--22
+Underfull \hbox (badness 10000) in paragraph at lines 17--23
 []$\OT1/cmtt/m/n/10.95 https : / / ieso . ca / -[] / media / Files / IESO / Doc
 ument-[]Library / planning-[]forecasts / apo /
  []
 
 [9 <./figures/fig4_tornado.png>]) [10] [11] [12]
-<figures/input_demand_fit.png, id=297, 867.24pt x 578.16pt>
+<figures/input_demand_fit.png, id=296, 867.24pt x 578.16pt>
 File: figures/input_demand_fit.png Graphic file (type png)
 <use figures/input_demand_fit.png>
 Package pdftex.def Info: figures/input_demand_fit.png  used on input line 391.
 (pdftex.def)             Requested size: 469.75502pt x 313.17216pt.
-<figures/input_wind_fit.png, id=298, 722.7pt x 289.08pt>
+<figures/input_wind_fit.png, id=297, 722.7pt x 289.08pt>
 File: figures/input_wind_fit.png Graphic file (type png)
 <use figures/input_wind_fit.png>
 Package pdftex.def Info: figures/input_wind_fit.png  used on input line 397.
 (pdftex.def)             Requested size: 469.75502pt x 187.90417pt.
  [13 <./figures/input_demand_fit.png>]
-<figures/input_solar_fit.png, id=307, 722.7pt x 289.08pt>
+<figures/input_solar_fit.png, id=306, 722.7pt x 289.08pt>
 File: figures/input_solar_fit.png Graphic file (type png)
 <use figures/input_solar_fit.png>
 Package pdftex.def Info: figures/input_solar_fit.png  used on input line 403.
 (pdftex.def)             Requested size: 469.75502pt x 187.90417pt.
-<figures/fig1_mean_y_bar.png, id=308, 540.0978pt x 325.6968pt>
+<figures/fig1_mean_y_bar.png, id=307, 540.0978pt x 325.6968pt>
 File: figures/fig1_mean_y_bar.png Graphic file (type png)
 <use figures/fig1_mean_y_bar.png>
 Package pdftex.def Info: figures/fig1_mean_y_bar.png  used on input line 412.
 (pdftex.def)             Requested size: 399.29463pt x 240.78821pt.
  [14 <./figures/input_wind_fit.png> <./figures/input_solar_fit.png>]
-<figures/fig3_y_distributions.png, id=317, 540.0978pt x 327.1422pt>
+<figures/fig3_y_distributions.png, id=316, 540.0978pt x 327.1422pt>
 File: figures/fig3_y_distributions.png Graphic file (type png)
 <use figures/fig3_y_distributions.png>
 Package pdftex.def Info: figures/fig3_y_distributions.png  used on input line 4
 18.
 (pdftex.def)             Requested size: 399.29463pt x 241.8568pt.
-<figures/fig7_crn_efficiency.png, id=318, 713.064pt x 351.714pt>
+<figures/fig7_crn_efficiency.png, id=317, 713.064pt x 351.714pt>
 File: figures/fig7_crn_efficiency.png Graphic file (type png)
 <use figures/fig7_crn_efficiency.png>
 Package pdftex.def Info: figures/fig7_crn_efficiency.png  used on input line 42
@@ -569,13 +569,13 @@ Package pdftex.def Info: figures/fig7_crn_efficiency.png  used on input line 42
 (pdftex.def)             Requested size: 399.29463pt x 196.95313pt.
 
 [15 <./figures/fig1_mean_y_bar.png> <./figures/fig3_y_distributions.png>]
-<figures/fig9_rhw_convergence.png, id=327, 568.524pt x 351.714pt>
+<figures/fig9_rhw_convergence.png, id=326, 568.524pt x 351.714pt>
 File: figures/fig9_rhw_convergence.png Graphic file (type png)
 <use figures/fig9_rhw_convergence.png>
 Package pdftex.def Info: figures/fig9_rhw_convergence.png  used on input line 4
 30.
 (pdftex.def)             Requested size: 399.29463pt x 247.02997pt.
-<figures/fig10_adequacy_search.png, id=328, 857.604pt x 356.532pt>
+<figures/fig10_adequacy_search.png, id=327, 857.604pt x 356.532pt>
 File: figures/fig10_adequacy_search.png Graphic file (type png)
 <use figures/fig10_adequacy_search.png>
 Package pdftex.def Info: figures/fig10_adequacy_search.png  used on input line 
@@ -583,7 +583,7 @@ Package pdftex.def Info: figures/fig10_adequacy_search.png  used on input line
 (pdftex.def)             Requested size: 399.29463pt x 165.99782pt.
 
 [16 <./figures/fig7_crn_efficiency.png> <./figures/fig9_rhw_convergence.png>]
-<figures/fig12_ucap_comparison.png, id=336, 939.51pt x 361.35pt>
+<figures/fig12_ucap_comparison.png, id=335, 939.51pt x 361.35pt>
 File: figures/fig12_ucap_comparison.png Graphic file (type png)
 <use figures/fig12_ucap_comparison.png>
 Package pdftex.def Info: figures/fig12_ucap_comparison.png  used on input line 
@@ -629,9 +629,9 @@ ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/O
 mar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on main.pdf (18 pages, 1210339 bytes).
+Output written on main.pdf (18 pages, 1210150 bytes).
 PDF statistics:
- 445 PDF objects out of 1000 (max. 8388607)
+ 444 PDF objects out of 1000 (max. 8388607)
  97 named destinations out of 1000 (max. 500000)
  314 words of extra memory for PDF output out of 10000 (max. 10000000)
 

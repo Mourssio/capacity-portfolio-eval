@@ -7,8 +7,9 @@
 
 \bibitem[{Energy Modelling Hub}(2025)]{CODERS2025}
 {Energy Modelling Hub}.
-\newblock {CODERS}: {C}anadian open data for energy research and simulation.
-\newblock \url{https://energymodellinghub.ca/coders}, 2025.
+\newblock {CODERS}: {C}anadian open-source database for energy research and
+  systems-modelling.
+\newblock \url{https://cme-emh.ca/en/coders/}, 2025.
 \newblock Release October 2025. Hourly provincial generation, demand, and
   capacity factor data.
 
