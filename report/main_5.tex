@@ -146,7 +146,11 @@ All portfolios share identical random inputs within each replication, implemente
 
 \subsection{Kim--Nelson Ranking and Selection}
 
-The Kim--Nelson (KN) sequential ranking-and-selection procedure \citep{KimNelson2001} selects the portfolio with smallest $\theta_i$ with probability of correct selection $P(\text{CS}) \geq 1 - \alpha$, provided the best system is at least $\delta$ better than the second best (the indifference-zone assumption). Parameters: $\alpha = 0.05$, indifference zone $\delta = \$50$M (roughly 1\% of annual system cost, below which a planner would not distinguish portfolios), $n_0 = 30$. The procedure initializes with $n_0$ CRN replications from all $k = 16$ portfolios, computes pairwise difference variances $S^2_{i\ell}$ (which automatically capture CRN covariance), then sequentially eliminates portfolios whose running means exceed a competitor's beyond a shrinking continuation region. The procedure terminates when one survivor remains.
+The Kim--Nelson (KN) sequential ranking-and-selection procedure \citep{KimNelson2001} selects the portfolio with smallest $\theta_i$ with probability of correct selection $P(\text{CS}) \geq 1 - \alpha$, provided the best system is at least $\delta$ better than the second best (the indifference-zone assumption). Parameters: $\alpha = 0.05$, $\delta = \$50$M (roughly 1\% of annual system cost), and $n_0 = 30$. The procedure initializes with $n_0$ CRN replications from all $k = 16$ portfolios and computes pairwise difference variances $S^2_{i\ell}$, which automatically capture the CRN covariance. At each stage $r \geq n_0$, portfolio $i$ is eliminated when some surviving competitor $\ell$ satisfies $\bar{Y}_i(r) - \bar{Y}_\ell(r) > W_{i\ell}(r)$, where the continuation region is
+\begin{equation}\label{eq:kn-threshold}
+  W_{i\ell}(r) = \max\!\left\{0,\; \frac{\delta}{2r}\!\left(\frac{h^2\, S^2_{i\ell}}{\delta^2} - r\right)\right\}
+\end{equation}
+with $h^2 = 2\eta(n_0 - 1)$ and $\eta$ the Bonferroni-corrected continuation constant for $k$ systems at level $\alpha$. The region $W_{i\ell}(r)$ shrinks with $r$ and reaches zero in finite time, guaranteeing termination with one survivor.
 
 \subsection{Deterministic Benchmark Gap}
 
@@ -174,27 +178,28 @@ selection. Table~\ref{tab:topk} reports the extended evaluation over 200 CRN rep
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/fig2_kn_elimination.png}
+\includegraphics[width=0.72\textwidth]{figures/fig2_kn_elimination.png}
 \caption{KN elimination timeline. Fourteen portfolios are eliminated at $n_0 = 30$; P01 is eliminated at stage 77, leaving P04 (70/20/10) as the selected portfolio.}\label{fig:kn}
 \end{figure}
 
 \begin{table}[ht]
 \centering
-\caption{Top-4 portfolio evaluation (200 replications). RHW = relative half-width of the 95\% confidence interval for mean $Y$.}\label{tab:topk}
-\begin{tabular}{lccccc}
+\caption{Top-4 portfolio evaluation (200 replications). $\bar{U}$ is mean annual unserved energy in MWh; $\lambda = \$10{,}000$/MWh. RHW is the relative half-width of the 95\% confidence interval for mean $Y$.}\label{tab:topk}
+\small
+\begin{tabular}{lcccccc}
 \toprule
-Portfolio & Mean $Y$ (\$M) & $F_i$ (\$M) & $\bar{C}$ (\$M) & $\lambda\bar{U}$ (\$M) & RHW \\
+Portfolio & Mean $Y$ (\$M) & $F_i$ (\$M) & $\bar{C}$ (\$M) & $\bar{U}$ (MWh) & $\lambda\bar{U}$ (\$M) & RHW \\
 \midrule
-P04 (70/20/10) & 4,306 & 1,694 & 1,835 & 777   & 0.38\% \\
-P10 (70/10/20) & 5,060 & 1,732 & 1,874 & 1,454 & 0.40\% \\
-P03 (60/30/10) & 8,272 & 1,660 & 1,846 & 4,766 & 0.83\% \\
-P09 (60/20/20) & 10,785 & 1,698 & 1,882 & 7,205 & 0.64\% \\
+P04 (70/20/10) & 4,306 & 1,694 & 1,835 &  77{,}700 & 777   & 0.38\% \\
+P10 (70/10/20) & 5,060 & 1,732 & 1,874 & 145{,}400 & 1,454 & 0.40\% \\
+P03 (60/30/10) & 8,272 & 1,660 & 1,846 & 476{,}600 & 4,766 & 0.83\% \\
+P09 (60/20/20) & 10,785 & 1,698 & 1,882 & 720{,}500 & 7,205 & 0.64\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/fig8_cost_decomposition.png}
+\includegraphics[width=0.75\textwidth]{figures/fig8_cost_decomposition.png}
 \caption{Cost decomposition: fixed cost $F_i$ (blue), operating cost $C_{ij}$ (orange), and adequacy penalty $\lambda U_{ij}$ (red). P04 pays the highest fixed cost but the lowest penalty, yielding the lowest total.}\label{fig:decomp}
 \end{figure}
 
@@ -269,7 +274,7 @@ When total capacity is a decision variable, P04's mix achieves adequacy (EUE $\a
 
 To test whether equal-installed-MW comparisons bias the ranking toward high-firm portfolios, six mixes spanning 20\% to 70\% firm are evaluated at equal UCAP (8,000~MW). Even after normalization, P04 remains cheapest (\$9,186M versus \$10,167M for P03). This happens because static ELCC is a peak-period metric that does not capture sustained low-renewable events (Appendix, Figure~\ref{fig:ucap}).
 
-To quantify the mis-pricing, an empirical ELCC experiment (Appendix~\ref{app:elcc_emp}) measures the unserved-energy reduction from adding 1,000~MW of each technology to a stressed 5,000~MW firm baseline, and normalizes against a perfect-firm reference. The empirical values are \textbf{wind 0.25} (vs.\ 0.18 static), \textbf{solar 0.07} (vs.\ 0.35), and \textbf{storage 0.13} (vs.\ 0.50). The static ELCC values used in UCAP normalization therefore overstate the adequacy contribution of solar and storage by a factor of 4 to 5, which is why equal-UCAP portfolios still favour firm capacity.
+To quantify the mis-pricing, an empirical ELCC experiment (Appendix~\ref{app:elcc_emp}) measures the unserved-energy reduction from adding 1,000~MW of each technology to a stressed 5,000~MW firm baseline, and normalizes against a perfect-firm reference. The empirical values are \textbf{wind 0.25} (vs.\ 0.18 static), \textbf{solar 0.07} (vs.\ 0.35), and \textbf{storage 0.13} (vs.\ 0.50). ELCC is load- and portfolio-dependent, so these numerical factors belong to the stressed-baseline configuration and are not claimed to transfer to the 12,000~MW setting without modification. The qualitative direction does transfer: static ELCC is a peak-period metric and overstates the adequacy contribution of solar and storage whenever meaningful EUE is produced by sustained low-renewable events.
 
 \subsection{OCBA Sanity Check and Capital Cost Sensitivity}\label{sec:extensions}
 
@@ -292,7 +297,7 @@ Together, these results address both research questions. Research Question~1 is 
 
 These findings are consistent with the central insight of \citet{ParkBaldick2016}, who show that incorporating uncertainty into capacity planning can change the preferred resource mix. Their study establishes this for expansion-timing decisions in a multi-stage stochastic program. The present study establishes the analogous result for portfolio ranking under a fixed-budget constraint. The methodological difference is consequential. Park and Baldick jointly optimize build decisions and uncertainty realizations, whereas this study takes candidate portfolios as given and applies formal statistical selection (KN with CRN) to identify the best performer. The shared conclusion is that deterministic planning can systematically undervalue firm capacity, because it fails to account for the tail risk introduced by correlated renewable shortfalls and generator outages.
 
-Several simplifications in the simulation model are worth noting. Demand noise is iid, which may overstate the frequency of isolated spikes while understating sustained peak-demand episodes. Storage dispatch follows a rule-based heuristic rather than co-optimization across the full horizon. The NORTA AR(1) model assumes that the normal-space $\rho$ equals the target autocorrelation, and although the induced error is negligible at $\rho = 0.995$, it becomes relevant for lower autocorrelations. Forced outages are represented at a discrete 10-unit granularity per sub-type, which is coarser than a continuous-time Markov model. These simplifications are acknowledged as limitations, but none of them would reverse the central finding within the range of parameters tested.
+Several simplifications in the simulation model are worth noting. The most consequential is the treatment of demand noise as iid. Demand noise is the single largest factor in the $2^3$ factorial (main effect \$2{,}883M), yet it is the only input dimension that does not receive NORTA AR(1) treatment, which is an internal asymmetry in the study. Autocorrelated demand residuals would likely widen the P04-to-P03 gap rather than reverse it, because sustained high-load episodes stress low-firm portfolios more than iid spikes do, but this prediction has not been verified by a direct experiment in this project. Storage dispatch follows a rule-based heuristic rather than full-horizon co-optimization, which likely understates the value of storage approximately uniformly across portfolios. The NORTA AR(1) model assumes that the normal-space $\rho$ equals the target autocorrelation; the induced error is negligible at $\rho = 0.995$ but grows at lower autocorrelations. Finally, forced outages are represented at a discrete 10-unit granularity per sub-type, which is coarser than a continuous-time Markov model.
 
 The natural extension is a full stochastic capacity expansion formulation, which would jointly optimize the portfolio mix and the total capacity subject to an adequacy constraint. The adequacy search in this study solves a one-dimensional version of that problem, and the multi-dimensional formulation connects directly to the framework of \citet{ParkBaldick2016}.
 
@@ -507,7 +512,7 @@ CRN variance reduction on P04 $-$ P10
 
 \section{Empirical ELCC Experiment}\label{app:elcc_emp}
 
-\texttt{src/empirical\_elcc.py}. Method: add a 1{,}000~MW dose of technology $X$ to a stressed 5{,}000~MW firm-only baseline $S_0$ (realistic FOR, no renewables, no storage), measure $\mathbb{E}[U_X]$ over 100 CRN replications, and define $\text{ELCC}_X^{\text{emp}} = (\mathbb{E}[U_0] - \mathbb{E}[U_X])\,/\,(\mathbb{E}[U_0] - \mathbb{E}[U_{\text{perf}}])$, where $U_{\text{perf}}$ is obtained by adding 1{,}000~MW of firm with all FORs overridden to zero. Baseline $\mathbb{E}[U_0] = 16.14$M~MWh; perfect-firm reference reduction $\Delta U_{\text{perf}} = 9.98$M~MWh.
+\texttt{src/empirical\_elcc.py}. Method: add a 1{,}000~MW dose of technology $X$ to a stressed 5{,}000~MW firm-only baseline $S_0$ (realistic FOR, no renewables, no storage), measure $\mathbb{E}[U_X]$ over 100 CRN replications, and define $\text{ELCC}_X^{\text{emp}} = (\mathbb{E}[U_0] - \mathbb{E}[U_X])\,/\,(\mathbb{E}[U_0] - \mathbb{E}[U_{\text{perf}}])$, where $U_{\text{perf}}$ is obtained by adding 1{,}000~MW of firm with all FORs overridden to zero. Baseline $\mathbb{E}[U_0] = 16.14$M~MWh; perfect-firm reference reduction $\Delta U_{\text{perf}} = 9.98$M~MWh. The stressed baseline is necessary because EUE at the 12,000~MW capacity of the main experiment is too small to resolve the marginal contribution of a 1{,}000~MW addition at a reasonable replication count. ELCC is load- and portfolio-dependent, so the numerical factors reported here are specific to this stressed configuration and should not be read as the true ELCC of Ontario wind, solar, or storage in the 12,000~MW portfolios. The qualitative conclusion (static ELCC overstates solar and storage contribution when sustained low-renewable events are the binding adequacy constraint) is what transfers.
 
 \begin{figure}[H]
 \centering
