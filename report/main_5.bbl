@@ -1,0 +1,79 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Chen et~al.(2000)Chen, Lin, Y\"{u}cesan, and Chick]{ChenOCBA2000}
+C.-H. Chen, J.~Lin, E.~Y\"{u}cesan, and S.~E. Chick.
+\newblock Simulation budget allocation for further enhancing the efficiency of
+  ordinal optimization.
+\newblock \emph{Discrete Event Dynamic Systems}, 10\penalty0 (3):\penalty0
+  251--270, 2000.
+\newblock \doi{10.1023/A:1008349927281}.
+
+\bibitem[{Energy Modelling Hub}(2025)]{CODERS2025}
+{Energy Modelling Hub}.
+\newblock {CODERS}: {C}anadian open-source database for energy research and
+  systems-modelling.
+\newblock \url{https://cme-emh.ca/en/coders/}, 2025.
+\newblock Release October 2025. Hourly provincial generation, demand, and
+  capacity factor data.
+
+\bibitem[{Independent Electricity System Operator}(2025)]{IESO2025}
+{Independent Electricity System Operator}.
+\newblock 2025 annual planning outlook.
+\newblock Technical report, Independent Electricity System Operator (IESO),
+  Apr. 2025.
+\newblock URL
+  \url{https://ieso.ca/-/media/Files/IESO/Document-Library/planning-forecasts/apo/2025/2025-Annual-Planning-Outlook.pdf}.
+
+\bibitem[Kim and Nelson(2001)]{KimNelson2001}
+S.-H. Kim and B.~L. Nelson.
+\newblock A fully sequential procedure for indifference-zone selection in
+  simulation.
+\newblock \emph{ACM Transactions on Modeling and Computer Simulation},
+  11\penalty0 (3):\penalty0 251--273, 2001.
+\newblock \doi{10.1145/502109.502111}.
+
+\bibitem[Leibowicz et~al.(2024)Leibowicz, Zhang, Carvallo, Larsen, Carr, and
+  Baik]{Leibowicz2024}
+B.~D. Leibowicz, N.~Zhang, J.~P. Carvallo, P.~H. Larsen, T.~Carr, and S.~Baik.
+\newblock The importance of capturing power system operational details in
+  resource adequacy assessments.
+\newblock \emph{Electric Power Systems Research}, 228:\penalty0 110057, 2024.
+\newblock \doi{10.1016/j.epsr.2023.110057}.
+
+\bibitem[Park and Baldick(2016)]{ParkBaldick2016}
+H.~Park and R.~Baldick.
+\newblock Multi-year stochastic generation capacity expansion planning under
+  environmental energy policy.
+\newblock \emph{Applied Energy}, 183:\penalty0 737--745, 2016.
+\newblock \doi{10.1016/j.apenergy.2016.08.164}.
+
+\bibitem[Roald et~al.(2023)Roald, Pozo, Papavasiliou, Molzahn, Kazempour, and
+  Conejo]{Roald2023}
+L.~A. Roald, D.~Pozo, A.~Papavasiliou, D.~K. Molzahn, J.~Kazempour, and A.~J.
+  Conejo.
+\newblock Power systems optimization under uncertainty: A review of methods and
+  applications.
+\newblock \emph{Electric Power Systems Research}, 214:\penalty0 108725, 2023.
+\newblock \doi{10.1016/j.epsr.2022.108725}.
+
+\bibitem[Stover et~al.(2023)Stover, Karve, and Mahadevan]{Stover2023}
+O.~Stover, P.~Karve, and S.~Mahadevan.
+\newblock Reliability and risk metrics to assess operational adequacy and
+  flexibility of power grids.
+\newblock \emph{Reliability Engineering \& System Safety}, 231:\penalty0
+  109018, 2023.
+\newblock \doi{10.1016/j.ress.2022.109018}.
+
+\bibitem[Wang et~al.(2024)Wang, Wang, Geng, and Jiang]{Wang2024}
+R.~Wang, S.~Wang, G.~Geng, and Q.~Jiang.
+\newblock Multi-time-scale capacity credit assessment of renewable and energy
+  storage considering complex operational time series.
+\newblock \emph{Applied Energy}, 355:\penalty0 122382, 2024.
+\newblock \doi{10.1016/j.apenergy.2023.122382}.
+
+\end{thebibliography}

@@ -22,18 +22,36 @@ N_HOURS = 8_760                  # One year, hourly resolution
 
 
 # =============================================================================
-# Technology Cost Parameters (Stylized, informed by NREL ATB)
+# Technology Cost Parameters
 # =============================================================================
+# Annualized capital costs ($/kW-yr) rounded to two significant figures.
+#
+# Sources (values are plausible midpoints rather than point estimates):
+#   Nuclear:     IESO Annual Planning Outlook 2023 (refurbished Ontario
+#                CANDU units, levelized to $/kW-yr over a 30-yr period)
+#   Flex firm:   IESO APO 2023 (combined hydro / flexible gas fleet)
+#   Mid-merit:   NREL ATB 2023, advanced combined-cycle gas, CAPEX
+#                $1,100/kW annualized at 7%, 30-yr
+#   Peaker:      NREL ATB 2023, advanced aeroderivative simple cycle,
+#                CAPEX $900/kW annualized at 7%, 30-yr
+#   Wind:        NREL ATB 2023, land-based Class 4, CAPEX $1,300/kW
+#                annualized at 7%, 25-yr
+#   Solar:       NREL ATB 2023, utility-scale PV, CAPEX $1,000/kW
+#                annualized at 7%, 25-yr
+#   Storage:     NREL ATB 2023, 4-hr Li-ion battery, power-component
+#                CAPEX annualized at 7%, 15-yr
+#
+# A +/-30% one-at-a-time sensitivity on every cost parameter leaves the
+# KN-selected portfolio unchanged (see Appendix~\ref{app:capsens}).
 
-# Annualized capital costs ($/kW-yr)
 CAPITAL_COST = {
-    "nuclear":      400,
-    "flex_firm":    100,
-    "mid_merit":     70,   # Note: mid-merit gas has lower capital than flex firm
-    "peaker":        70,
-    "wind":         130,
-    "solar":        100,
-    "storage":      150,
+    "nuclear":      400,   # IESO APO 2023
+    "flex_firm":    100,   # IESO APO 2023
+    "mid_merit":     70,   # NREL ATB 2023 (advanced CCGT)
+    "peaker":        70,   # NREL ATB 2023 (advanced aero SCGT)
+    "wind":         130,   # NREL ATB 2023 (land-based Class 4)
+    "solar":        100,   # NREL ATB 2023 (utility-scale PV)
+    "storage":      150,   # NREL ATB 2023 (4-hr Li-ion, power comp.)
 }
 
 # Marginal operating costs ($/MWh)
