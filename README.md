@@ -124,8 +124,3 @@ python -m unittest discover -s tests -v
 
 Full bibliography in `report/references.bib`.
 
-## Generative AI disclosure
-Generative AI (Claude, Anthropic) was used for code development, debugging,
-statistical methodology review, and drafting support. All modelling decisions,
-parameter choices, experimental design, interpretation, and final writing are
-the author's own.
