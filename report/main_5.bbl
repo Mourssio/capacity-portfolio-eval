@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -44,6 +44,12 @@ B.~D. Leibowicz, N.~Zhang, J.~P. Carvallo, P.~H. Larsen, T.~Carr, and S.~Baik.
   resource adequacy assessments.
 \newblock \emph{Electric Power Systems Research}, 228:\penalty0 110057, 2024.
 \newblock \doi{10.1016/j.epsr.2023.110057}.
+
+\bibitem[{National Renewable Energy Laboratory}(2023)]{NRELATB2023}
+{National Renewable Energy Laboratory}.
+\newblock 2023 annual technology baseline.
+\newblock Technical report, National Renewable Energy Laboratory, 2023.
+\newblock URL \url{https://atb.nrel.gov/electricity/2023/}.
 
 \bibitem[Park and Baldick(2016)]{ParkBaldick2016}
 H.~Park and R.~Baldick.

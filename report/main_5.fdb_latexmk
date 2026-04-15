@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main_5"] 1776216662.03731 "main_5.aux" "main_5.bbl" "main_5" 1776216973.45268 0
+["bibtex main_5"] 1776289378.29374 "main_5.aux" "main_5.bbl" "main_5" 1776289540.6992 0
   "./references.bib" 1776198905 3636 631a610553912712389260779ca99c31 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/bibtex/bst/natbib/abbrvnat.bst" 1284455456 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "main_5.aux" 1776216972 16157 8f308ae01ccc01c91c015071497ad669 "pdflatex"
+  "main_5.aux" 1776289540 16353 3f809cb46c54077fd8cf47db965c9042 "pdflatex"
   (generated)
   "main_5.bbl"
   "main_5.blg"
   (rewritten before read)
-["pdflatex"] 1776216971.37542 "c:/Users/Omar Elsawi/OneDrive - University of Toronto/MIE1613/Project Report/capacity-portfolio-eval-v3-final_2/report/main_5.tex" "main_5.pdf" "main_5" 1776216973.45314 0
+["pdflatex"] 1776289538.61465 "c:/Users/Omar Elsawi/OneDrive - University of Toronto/MIE1613/Project Report/capacity-portfolio-eval-v3-final_2/report/main_5.tex" "main_5.pdf" "main_5" 1776289540.69975 0
   "C:/Users/Omar Elsawi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775322734 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Omar Elsawi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1776097901 11548 59001d432356cd02ea33081f3fed1cc0 ""
   "C:/Users/Omar Elsawi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1773869635 12668 f4eaf9736e188e6e75e165c4ba72de8b ""
@@ -42,9 +42,9 @@
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy9.tfm" 1136765053 1116 25a7bf822c58caf309a702ef79f4afbb ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
-  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti9.tfm" 1136765053 1476 cccc6cc4935c18ec3d5623b77ecb8b74 ""
+  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti8.tfm" 1136765053 1504 1747189e0441d1c18f3ea56fafc1c480 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt10.tfm" 1136765053 768 1321e9409b4137d6fb428ac9dc956269 ""
-  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt9.tfm" 1136765053 764 c98a2af25c99b73a368cf7336e255190 ""
+  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt8.tfm" 1136765053 768 d7b9a2629a0c353102ad947dc9221d49 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
@@ -58,11 +58,12 @@
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1247596666 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
-  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb" 1247596667 36310 f5ddc6715cc60deb16d9db5ded6a9391 ""
+  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1247596666 35660 fb24af7afbadb71801619f1415838111 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1247596667 31099 342ef5a582aacbd3346f3cf4579679fa ""
-  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb" 1247596667 29078 718ea4567ceff944262b0f5b0800e1d9 ""
+  "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb" 1247596666 24287 6b803fa9eb1ddff9112e00519b09dd9e ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -121,7 +122,7 @@
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1670403145 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/tex/latex/titlesec/titlesec.sty" 1736608268 48766 87a17a4ef312a39cd43896e34a679a56 ""
   "C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/Omar Elsawi/OneDrive - University of Toronto/MIE1613/Project Report/capacity-portfolio-eval-v3-final_2/report/main_5.tex" 1776216952 46378 2bcdae856dbdcc5eaaae0353364b448e ""
+  "c:/Users/Omar Elsawi/OneDrive - University of Toronto/MIE1613/Project Report/capacity-portfolio-eval-v3-final_2/report/main_5.tex" 1776289538 47084 50652c82c6bc43a1c4d8e5986a2bd5b8 ""
   "figures/fig12_ucap_comparison.png" 1776187661 148559 11d6facc46e0263d25ea32af809a0fe1 ""
   "figures/fig2_kn_elimination.png" 1776187443 106284 0149b352d4caf5f09c7980ba95bd743f ""
   "figures/fig3_y_distributions.png" 1776187443 48149 6cdfacecc52e4581c88cc1ebf7f6983e ""
@@ -135,10 +136,10 @@
   "figures/input_demand_fit.png" 1775341312 271216 2a93eea7a5f26756f349065b6de00bb4 ""
   "figures/input_solar_fit.png" 1775341312 72688 b11736839a1f22a2486d9cdfd3a9bb72 ""
   "figures/input_wind_fit.png" 1775341312 70803 ec9c1bbc113d4e2402a542ef3dd78ce4 ""
-  "main_5.aux" 1776216972 16157 8f308ae01ccc01c91c015071497ad669 "pdflatex"
-  "main_5.bbl" 1776216662 3543 2c7b591b54b38550f4119cdc18d8a928 "bibtex main_5"
-  "main_5.out" 1776216972 6408 c571adb1833603df870f6691a34bc339 "pdflatex"
-  "main_5.tex" 1776216952 46378 2bcdae856dbdcc5eaaae0353364b448e ""
+  "main_5.aux" 1776289540 16353 3f809cb46c54077fd8cf47db965c9042 "pdflatex"
+  "main_5.bbl" 1776289378 3834 98c133a09e06daf62197d93d11a3a7e5 "bibtex main_5"
+  "main_5.out" 1776289540 6480 20570d6c4a815a0b0e10756bbd968f46 "pdflatex"
+  "main_5.tex" 1776289538 47084 50652c82c6bc43a1c4d8e5986a2bd5b8 ""
   (generated)
   "main_5.aux"
   "main_5.log"
