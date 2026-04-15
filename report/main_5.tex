@@ -4,6 +4,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
 \onehalfspacing
+\setlength{\parskip}{0.15em}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -13,6 +14,11 @@
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{url}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0.45em}{0.15em}
+\titlespacing*{\subsection}{0pt}{0.25em}{0.08em}
+\titlespacing*{\paragraph}{0pt}{0.25em}{0.6em}
+
 
 % --- Title ---
 \title{Capacity Portfolio Evaluation Under Multi-Dimensional Uncertainty:\\A Stochastic Simulation Study}
@@ -20,6 +26,7 @@
 \date{April 15, 2026}
 
 \begin{document}
+
 \maketitle
 
 %==========================================================================
@@ -27,11 +34,13 @@
 %==========================================================================
 \section{Introduction}\label{sec:intro}
 
-Long-term electricity capacity planning requires selecting a resource mix that balances cost and reliability across plausible future conditions. In Ontario, the IESO projects a 75\% increase in provincial electricity demand by 2050, driven by electrification, electric-vehicle supply chains, data centres, and industrial expansion \citep{IESO2025}. As the generation mix shifts toward variable renewables and battery storage, deterministic planning methods that evaluate a small number of fixed scenarios may not reveal when uncertainty changes which resource mix performs best. This study evaluates 16 candidate portfolios under multi-dimensional uncertainty using chronological Monte Carlo simulation calibrated to Ontario empirical data. The preferred mix under stochastic evaluation (P04, 70/20/10) differs from the deterministic recommendation (P03, 60/30/10) by \$3{,}968M per year. This Deterministic Benchmark Gap is robust across a $2^3$ uncertainty factorial, three VOLL values, a UCAP-normalized re-evaluation, and a stochastic adequacy search.
+Long-term electricity capacity planning requires selecting a resource mix that balances cost and reliability under uncertainty. The IESO projects a 75\% increase in Ontario's electricity demand by 2050 \citep{IESO2025}, and as the generation fleet shifts toward variable renewables and battery storage, planning exercises that evaluate a small number of fixed scenarios can miss the point at which uncertainty actually changes the preferred mix. Whether it does so depends strongly on how tightly the capacity budget binds, and the rest of this report is an attempt to quantify that dependence in a stylized setting.
 
-Recent literature emphasizes explicit uncertainty treatment in capacity planning. \citet{Roald2023} review optimization under uncertainty in power systems and frame long-term planning as a decision problem under layered uncertainty. \citet{Stover2023} argue that deterministic reserve-margin rules are insufficient for high-renewable systems, and \citet{Leibowicz2024} show that capturing operational detail in Monte Carlo adequacy simulation changes which resources are identified as adequate. \citet{Wang2024} show that temporal structure matters when evaluating the adequacy contribution of renewables and storage, which directly motivates the NORTA AR(1) input model used in this study. A particularly relevant contribution is presented by \citet{ParkBaldick2016}, who formulate a multi-year stochastic capacity expansion model using scenario-tree discretization of demand and wind, and show that uncertainty changes the optimal build timing and resource mix. The present study adapts that uncertainty-aware logic to a different problem. Whereas Park and Baldick jointly optimize build decisions against a scenario tree, this study fixes the portfolio set and applies simulation-based \emph{ranking and selection} to the evaluation subproblem. Scenario-tree enumeration is replaced by 200 chronological CRN replications at 8,760-hour resolution, and the stochastic program is replaced by the Kim--Nelson (KN) procedure \citep{KimNelson2001} with Common Random Numbers (CRN) and Bonferroni-corrected confidence intervals. The shared conclusion is the same in both settings: deterministic planning undervalues firm capacity when renewable shortfalls and outages are temporally correlated.
+A one-zone system is simulated chronologically over 8{,}760 hours with inputs calibrated from Ontario empirical data, and the total installed capacity is fixed at 12~GW. The 12~GW figure is not an Ontario adequacy target; it is a budget-constrained stress scenario in which total capacity is insufficient for full adequacy even in expectation, and the trade-off between firm generation and variable resources is therefore exposed to tail risk. Within this budget and within the original 16-portfolio simplex (firm share capped at 70\%), stochastic evaluation selects P04 (70/20/10) as the in-budget winner, mean-input evaluation selects P03 (60/30/10), and the Deterministic Benchmark Gap between them is \$3{,}968M per year on the top-4 set. When the same four portfolios are re-evaluated at 15.8~GW and 18~GW, both methods converge on P03 and the DBG closes within the indifference zone. A separate boundary probe at 12~GW shows that relaxing the 70\% firm cap exposes a still cheaper mix: P$_{b3}$ (85/10/05) beats P04 by \$746M. P04 is therefore the in-budget winner within the original constrained design, not an absolute recommendation, and the value of uncertainty-aware evaluation in this model is concentrated in the setting where the capacity budget binds.
 
-Candidate portfolios are generated by discretizing the feasible allocation simplex over firm generation, renewable generation, and battery storage at 10\% increments subject to a fixed total capacity budget. The simulation model is a stylized one-zone system, not calibrated to a specific jurisdiction, with input distributions calibrated from Ontario empirical data (IESO demand records and the CODERS dataset \citep{CODERS2025}).
+Recent literature treats uncertainty in capacity planning directly. \citet{Roald2023} review optimization under uncertainty in power systems, and \citet{Stover2023} argue that deterministic reserve-margin rules are insufficient for high-renewable systems. \citet{Leibowicz2024} show that operational detail in Monte Carlo adequacy simulation changes which resources are identified as adequate, and \citet{Wang2024} report that temporal structure matters for the adequacy contribution of renewables and storage, which is why the wind input here uses NORTA AR(1) rather than independent sampling. \citet{ParkBaldick2016} is a motivating reference rather than a template: they solve a multi-year stochastic capacity-expansion program and find that uncertainty affects optimal build timing and resource mix. The present study addresses a related question in a different setting, namely a fixed-budget evaluation of a discretized candidate set using Kim--Nelson (KN) ranking and selection \citep{KimNelson2001} with Common Random Numbers (CRN) and Bonferroni-corrected confidence intervals, rather than a multi-stage stochastic program. The two agree in direction within this stylized setting but are not directly comparable in methodology or decision problem.
+
+Portfolios are generated by discretizing the feasible simplex at 10\% increments subject to $f^{\text{firm}} \in [0.20, 0.70]$, $f^{\text{renew}} \in [0.10, 0.60]$, $f^{\text{stor}} \in [0.10, 0.30]$, giving $k = 16$ candidates. Inputs are calibrated from IESO records and the CODERS dataset \citep{CODERS2025}.
 
 The remainder of this report is organized as follows. Section~\ref{sec:problem} defines the problem and performance measure. Section~\ref{sec:model} describes the simulation model. Section~\ref{sec:design} presents the experimental design. Section~\ref{sec:results} reports the results. Section~\ref{sec:conclusion} discusses limitations and future work.
 
@@ -61,8 +70,8 @@ where $c_g$ is marginal cost and $x_{g,i,j,t}$ is dispatched output in hour $t$.
 \subsection{Research Questions}
 
 \begin{enumerate}[leftmargin=*, itemsep=2pt]
-  \item Which portfolio minimizes expected total cost under uncertainty, and does this differ from the deterministic recommendation?
-  \item Which uncertainty factors materially affect portfolio ranking?
+  \item Within the 12~GW budget and the original 16-portfolio simplex, which mix minimizes expected total cost under uncertainty and does this differ from the deterministic recommendation, and under what structural conditions (capacity budget, simplex bounds) does that difference hold?
+  \item Among the leading candidates, which uncertainty factors materially move the mean cost, and do any tested factor levels reshuffle their ranking? (This is an explicitly conditional sensitivity analysis on the top-4, not a global reshuffling test over the full simplex.)
 \end{enumerate}
 
 %==========================================================================
@@ -98,7 +107,7 @@ Each replication simulates 8,760 hours of system operation for a given portfolio
 For each hour $t$, the dispatch proceeds as follows:
 
 \begin{enumerate}[leftmargin=*, itemsep=2pt]
-  \item \textbf{Demand.} $D(t) = D_{\text{base}}(t)(1 + \sigma_d \varepsilon(t))$, $\varepsilon(t) \sim N(0,1)$, $\sigma_d = 0.09$. Multiplicative noise lets absolute deviations scale with load; the iid assumption is flagged in Section~\ref{sec:conclusion}.
+  \item \textbf{Demand.} $D(t) = D_{\text{base}}(t)(1 + \sigma_d \varepsilon(t))$, $\varepsilon(t) \sim N(0,1)$, $\sigma_d = 0.09$. Multiplicative noise lets absolute deviations scale with load. Demand noise is the only input dimension that does not receive NORTA AR(1) treatment in this study, which is an internal asymmetry with the correlated renewable inputs; the consequences are discussed in Section~\ref{sec:conclusion}.
   \item \textbf{Renewables.} Wind and solar capacity factors are drawn from NORTA AR(1) Beta distributions (Section~\ref{sec:inputs}). Aggregate renewable output is $R(t) = \text{MW}_w \cdot \text{CF}_w(t) + \text{MW}_s \cdot \text{CF}_s(t)$.
   \item \textbf{Residual demand.} $D_{\text{res}}(t) = \max(0,\; D(t) - R(t))$. This is the load that must be served by storage and firm generation.
   \item \textbf{Storage.} The battery discharges when residual demand exceeds the 70th percentile of the base demand profile and charges from surplus when residual demand falls below the 30th percentile, subject to 85\% round-trip efficiency and state-of-charge, power, and remaining-demand limits. These are stylized threshold rules, not co-optimized dispatch; the simplification is noted in Section~\ref{sec:conclusion}.
@@ -138,15 +147,15 @@ See Section~\ref{sec:model}: 10 units per sub-type, independent daily Bernoulli$
 %==========================================================================
 \section{Experimental Design}\label{sec:design}
 
-Each simulation run is a \emph{terminating simulation} over 8,760 hours (one operating year), so output analysis uses independent replications rather than batch means. Error is controlled at three levels. First, the Kim--Nelson ranking-and-selection procedure guarantees $P(\text{CS}) \geq 0.95$ for the indifference-zone parameter $\delta = \$50$M. Second, the top-4 evaluation uses Bonferroni-corrected pairwise 95\% confidence intervals with $\alpha_{\text{pair}} = 0.05/6 = 0.0083$. Third, relative half-widths are reported for every mean (Table~\ref{tab:topk}).
+Each simulation run is a terminating simulation over 8,760 hours (one operating year), so output analysis uses independent replications rather than batch means. Error is controlled at three levels: the Kim--Nelson ranking-and-selection procedure guarantees $P(\text{CS}) \geq 0.95$ for the indifference-zone parameter $\delta = \$50$M, the top-4 evaluation uses Bonferroni-corrected pairwise 95\% confidence intervals with $\alpha_{\text{pair}} = 0.05/6 = 0.0083$, and relative half-widths are reported for every mean (Table~\ref{tab:topk}).
 
 \subsection{Common Random Numbers}
 
-All portfolios share identical random inputs within each replication, implemented via NumPy's \texttt{SeedSequence} spawning. Three independent streams (demand, outages, renewables) are deterministically generated from a base seed and replication index. As a variance-reduction technique, CRN induces positive covariance between outputs and thereby reduces $\text{Var}(Y_i - Y_\ell)$, which is the quantity that drives pairwise inference in ranking and selection. Empirically, variance reduction on pairwise differences ranges from 2$\times$ to 35$\times$ (Appendix, Figure~\ref{fig:crn}).
+All portfolios share identical random inputs within each replication, implemented via NumPy's \texttt{SeedSequence} spawning. Three independent streams (demand, outages, renewables) are generated deterministically from a base seed and replication index. Under CRN, positive covariance between outputs reduces $\text{Var}(Y_i - Y_\ell)$, which is the quantity that drives pairwise inference in ranking and selection. The empirical variance reduction on pairwise differences ranges from 2$\times$ to 35$\times$ (Appendix, Figure~\ref{fig:crn}).
 
 \subsection{Kim--Nelson Ranking and Selection}
 
-The Kim--Nelson (KN) sequential ranking-and-selection procedure \citep{KimNelson2001} selects the portfolio with smallest $\theta_i$ with probability of correct selection $P(\text{CS}) \geq 1 - \alpha$, provided the best system is at least $\delta$ better than the second best (the indifference-zone assumption). Parameters: $\alpha = 0.05$, $\delta = \$50$M (roughly 1\% of annual system cost), and $n_0 = 30$. The procedure initializes with $n_0$ CRN replications from all $k = 16$ portfolios and computes pairwise difference variances $S^2_{i\ell}$, which automatically capture the CRN covariance. At each stage $r \geq n_0$, portfolio $i$ is eliminated when some surviving competitor $\ell$ satisfies $\bar{Y}_i(r) - \bar{Y}_\ell(r) > W_{i\ell}(r)$, where the continuation region is
+The Kim--Nelson (KN) sequential ranking-and-selection procedure \citep{KimNelson2001} selects the portfolio with smallest $\theta_i$ with probability of correct selection at least $1 - \alpha$, provided the best system is at least $\delta$ better than the second best. Parameters used throughout are $\alpha = 0.05$, $\delta = \$50$M (about 1\% of annual system cost), and $n_0 = 30$. KN begins with $n_0$ CRN replications on all $k = 16$ portfolios, computes pairwise difference variances $S^2_{i\ell}$ (which absorb the CRN covariance automatically), and at each stage $r \geq n_0$ eliminates portfolio $i$ whenever some surviving competitor $\ell$ satisfies $\bar{Y}_i(r) - \bar{Y}_\ell(r) > W_{i\ell}(r)$, with continuation region
 \begin{equation}\label{eq:kn-threshold}
   W_{i\ell}(r) = \max\!\left\{0,\; \frac{\delta}{2r}\!\left(\frac{h^2\, S^2_{i\ell}}{\delta^2} - r\right)\right\}
 \end{equation}
@@ -154,7 +163,7 @@ with $h^2 = 2\eta(n_0 - 1)$ and $\eta$ the Bonferroni-corrected continuation con
 
 \subsection{Deterministic Benchmark Gap}
 
-The deterministic recommendation $P_{\text{DET}}$ is obtained by setting all inputs to expected values and selecting the lowest-$Y$ portfolio. $P_{\text{DET}}$ and $P_{\text{KN}}$ are then evaluated for 200 paired CRN replications. The DBG $= \bar{Y}_{\text{DET}} - \bar{Y}_{\text{KN}}$ quantifies the cost of ignoring uncertainty in portfolio selection. This is not the classical VSS (which compares stochastic and deterministic optimizations); since we select from fixed portfolios, the DBG measures the value of uncertainty-aware selection.
+The deterministic recommendation $P_{\text{DET}}$ is obtained by setting all inputs to their expected values and selecting the portfolio with the lowest $Y$ within the original simplex. $P_{\text{DET}}$ and the KN-selected portfolio $P_{\text{KN}}$ are then evaluated over 200 paired CRN replications. The DBG is defined as $\bar{Y}_{\text{DET}} - \bar{Y}_{\text{KN}}$ and, as used in this paper, is a scenario-specific comparison within the 12~GW budget and the original simplex. It is not a universal planning penalty, and it is not a general statement about the value of uncertainty-aware planning. Section~\ref{sec:extensions} re-runs the same construction at higher capacity levels and reports how the DBG behaves outside the 12~GW scenario.
 
 \subsection{Sensitivity Analysis}
 
@@ -169,17 +178,14 @@ Three additional analyses extend the core evaluation. First, a \textit{stochasti
 %==========================================================================
 \section{Results}\label{sec:results}
 
-\subsection{Portfolio Selection}
+\subsection{In-Budget Portfolio Selection Within the Original Simplex}
 
-The KN procedure selects P04 (70/20/10) after 77 replications (Figure~\ref{fig:kn}). Fourteen
-of the sixteen portfolios are eliminated at the initial stage ($n_0 = 30$), leaving P04 and
-P01 (40/50/10) as survivors. P01 is then eliminated at stage~77, which leaves P04 as the final
-selection. Table~\ref{tab:topk} reports the extended evaluation over 200 CRN replications.
+The main experiment ranks the 16 portfolios of the 10\%-step simplex under a fixed 12~GW budget. Both the budget and the 70\% firm-share ceiling are binding design choices: the 12~GW figure is the stylized stress scenario introduced in Section~\ref{sec:intro}, and the firm-share ceiling truncates the design space directly. Section~\ref{sec:extensions} relaxes each in turn. The result below is the in-budget winner within that constrained design, not an absolute recommendation. KN selects P04 (70/20/10) after 77 replications (Figure~\ref{fig:kn}). Fourteen of the sixteen portfolios are eliminated at the initial stage ($n_0 = 30$), leaving P04 and P01 (40/50/10); P01 is then eliminated at stage~77. Table~\ref{tab:topk} reports the extended evaluation of the top-4 survivors over 200 CRN replications.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.72\textwidth]{figures/fig2_kn_elimination.png}
-\caption{KN elimination timeline. Fourteen portfolios are eliminated at $n_0 = 30$; P01 is eliminated at stage 77, leaving P04 (70/20/10) as the selected portfolio.}\label{fig:kn}
+\includegraphics[width=0.78\textwidth]{figures/fig2_kn_elimination.png}
+\caption{KN elimination timeline. Fourteen of sixteen portfolios are eliminated at $n_0 = 30$; P01 is eliminated at stage 77, leaving P04 (70/20/10) as the in-budget winner within the original simplex.}\label{fig:kn}
 \end{figure}
 
 \begin{table}[ht]
@@ -197,109 +203,73 @@ P09 (60/20/20) & 10,785 & 1,698 & 1,882 & 720{,}500 & 7,205 & 0.64\% \\
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/fig8_cost_decomposition.png}
-\caption{Cost decomposition: fixed cost $F_i$ (blue), operating cost $C_{ij}$ (orange), and adequacy penalty $\lambda U_{ij}$ (red). P04 pays the highest fixed cost but the lowest penalty, yielding the lowest total.}\label{fig:decomp}
-\end{figure}
+The decomposition in Table~\ref{tab:topk} shows where the gap comes from. Operating costs vary by less than 3\% across the top-4, but the adequacy-penalty column ranges from \$777M for P04 to \$7{,}205M for P09. What separates these mixes is reliability, not dispatch efficiency. Low firm capacity interacts with the temporally correlated wind droughts produced by the NORTA AR(1) model, and those sustained low-output episodes, which do not appear under iid sampling or mean-input evaluation, generate the heavy right tails visible in Figure~\ref{fig:box} for P03 and P09.
 
-The cost decomposition in Figure~\ref{fig:decomp} shows the mechanism behind this result. P04's
-adequacy penalty is much lower than that of its competitors (\$777M, compared with \$4,766M
-for P03 and \$7,205M for P09), while operating costs vary by less than 3\% across the top-4
-portfolios. The dominant source of differentiation is therefore reliability rather than
-dispatch efficiency. The physical driver is the interaction between low firm capacity and
-temporally correlated wind droughts produced by the NORTA AR(1) model. These events do not
-appear under iid sampling or mean-input evaluation, and they are responsible for the heavy
-right tails visible in Figure~\ref{fig:box} for P03 and P09.
-
-All six pairwise differences among the top-4 portfolios are statistically significant under
-Bonferroni correction ($\alpha_{\text{pair}} = 0.0083$), and all relative half-widths are
-below 1\% (Table~\ref{tab:topk}). KN terminates at 77 replications, well below the
-500-replication cap. This reflects the variance reduction that CRN achieves on pairwise
-differences (Figure~\ref{fig:crn}).
+All six pairwise differences among the top-4 are statistically significant under Bonferroni correction ($\alpha_{\text{pair}} = 0.0083$), and all relative half-widths fall below 1\%. KN terminates after 77 replications, well under the 500-replication cap, which is consistent with the variance reduction CRN achieves on pairwise differences (Figure~\ref{fig:crn}).
 
 
-\subsection{Deterministic Benchmark Gap}
-Under deterministic assumptions (demand noise set to zero, all generators available, renewable
-capacity factors at their annual means), the lowest-cost portfolio is P03 (60/30/10) at
-\$3,503M. This differs from the stochastic recommendation (P04). The DBG is:
-%
+\subsection{Deterministic Benchmark Gap (12~GW Regime)}
+
+Fixing all inputs at their expected values (zero demand noise, no forced outages, annual-mean renewables) makes P03 (60/30/10) the cheapest portfolio within the original simplex at \$3{,}503M. That choice differs from the in-budget stochastic selection P04, and the gap is
 \begin{equation}\label{eq:dbg}
   \text{DBG} = \bar{Y}_{\text{P03}} - \bar{Y}_{\text{P04}} = \$3{,}968\text{M}, \quad 95\%\;\text{CI:}\; [\$3{,}905,\; \$4{,}031]\,\text{M}.
 \end{equation}
-A planner relying on mean-input evaluation would select a portfolio costing approximately
-\$4B more per year when uncertainty is included (Figure~\ref{fig:dbg}).
+Under the 12~GW budget, mean-input evaluation selects a portfolio whose adequacy deteriorates sharply once the tail events are simulated (Figure~\ref{fig:dbg}). The arithmetic behind this is straightforward. P03 saves \$34M in annualized fixed cost relative to P04 because its lower firm fraction needs less capital-intensive generation, but that saving only holds if residual demand never exceeds the available firm capacity. With stochastic inputs, demand noise ($\sigma_d = 0.09$), forced outages (5--8\% FOR), and NORTA-modelled wind droughts push residual demand above P03's 7{,}200~MW of outage-reduced firm capacity during sustained low-wind episodes, and the adequacy penalty more than erases the fixed-cost saving.
 
-The source of the gap is informative. P03 saves \$34M in annualized fixed cost relative to
-P04 because its lower firm fraction requires less capital-intensive generation. This saving
-is only realized under mean-input evaluation, where renewables always meet their expected
-contribution and the 10 percentage-point firm deficit is invisible. Under stochastic
-evaluation the tail risk reappears. Demand noise ($\sigma_d = 0.09$) occasionally pushes load
-above the level that P03's firm fleet can cover, and forced outages (5--8\% FOR) reduce
-available firm capacity precisely when it is needed most. The NORTA-modelled wind droughts
-compound this exposure. During multi-hour low-wind events, P03's 3,600~MW of renewables
-contribute negligibly, while its 7,200~MW of firm generation (reduced by outages) cannot
-bridge the gap. The \$4B DBG therefore quantifies the cost of ignoring these correlated tail
-events in portfolio selection. This finding directly answers Research Question~1. The
-preferred portfolio changes when uncertainty is included, and the cost consequence is
-substantial at the system scale.
+The \$3{,}968M figure is specific to this setup: the 12~GW budget, the original simplex, and the stochastic input structure used here. It is not a universal planning penalty and it should not be read as a general statement about uncertainty-aware planning. Section~\ref{sec:extensions} runs the same construction at higher capacities and finds that the gap closes within the indifference zone, which answers Research Question~1 conditional on the 12~GW scenario and the original simplex bounds.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.70\textwidth]{figures/fig6_dbg.png}
+\includegraphics[width=0.60\textwidth]{figures/fig6_dbg.png}
 \caption{Deterministic Benchmark Gap. Under mean-input assumptions, P03 appears cheaper. Under stochastic evaluation with 200 paired CRN replications, P04 costs \$3,968M less per year.}\label{fig:dbg}
 \end{figure}
 
-\subsection{Sensitivity Analysis}
+\subsection{Conditional Factorial Sensitivity (Top-4)}
 
-The $2^3$ factorial (Figure~\ref{fig:tornado}) identifies demand noise (\$2,883M main effect) and forced outages (\$2,838M) as the dominant uncertainty factors. Renewable variability contributes only \$117M, reflecting the concentrated Beta(6.73, 15.69) marginal calibrated from fleet-level CODERS data: because aggregate Ontario wind capacity factors cluster tightly around 0.30, switching between stochastic and fixed-mean renewable profiles has limited impact on the performance gap between the best and worst portfolios.
+A $2^3$ factorial on the top-4 KN survivors is run with 30 CRN replications per cell. This is a conditional sensitivity analysis among leading candidates: the twelve eliminated portfolios are not re-evaluated under the factorial factor levels, so the factorial cannot speak to whether uncertainty assumptions would reshuffle the full 16-portfolio ranking. Within the top-4 set, demand noise (\$2,883M main effect) and forced outages (\$2,838M) dominate, while renewable variability contributes only \$117M (Figure~\ref{fig:tornado}). The small renewable effect reflects the concentrated Beta(6.73, 15.69) marginal calibrated from fleet-level CODERS data.
 
-The negative demand$\times$outage interaction ($-$\$699M) reflects a saturation effect. When either factor alone is set to its high level, the most vulnerable hours are already experiencing shortfalls, so adding the second stressor has a diminishing marginal impact. Modelling demand uncertainty alone therefore captures much of the adequacy risk that outages would additionally reveal, and the same holds in reverse. The most important finding from the factorial is that P04 is the best portfolio in all eight configurations. This directly answers Research Question~2. Demand noise and forced outages move the \emph{magnitude} of portfolio costs, but they do not change the \emph{ranking}.
+The negative demand$\times$outage interaction ($-$\$699M) is a saturation effect: once either factor alone is at its high level, the most vulnerable hours are already in shortfall, and the second stressor adds less than the simple sum of its main effect would suggest. Across all eight configurations, P04 remains the in-budget winner among the top-4. Research Question~2 therefore has a conditional answer. Demand noise and forced outages move the \emph{magnitude} of costs among these four portfolios but do not reshuffle their ranking within the 12~GW budget and the original simplex. Whether the identity of the winner survives changes in the capacity budget or the simplex boundary is a stronger question, and Section~\ref{sec:extensions} shows that it does not.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.80\textwidth]{figures/fig4_tornado.png}
-\caption{Factorial sensitivity analysis. Demand noise and forced outages dominate; renewable variability has minimal impact. P04 is the best portfolio in all eight configurations.}\label{fig:tornado}
+\caption{Conditional factorial sensitivity on the top-4 portfolios only. Demand noise and forced outages dominate; renewable variability has minimal impact. P04 remains the in-budget winner across all eight factorial configurations within this restricted set.}\label{fig:tornado}
 \end{figure}
 
 \subsection{VOLL Sensitivity}
 
-To test robustness to the adequacy penalty coefficient, the top-4 portfolios were re-ranked for $\lambda \in \{5{,}000,10{,}000,15{,}000\}$ \$/MWh using the same replication-level $(F,C,U)$ outputs from the 200-replication CRN experiment. The selected portfolio remains unchanged (P04) across all tested values. This indicates the recommendation is not an artifact of a single VOLL calibration point, at least within a practically relevant range.
+Re-ranking the top-4 for $\lambda \in \{5{,}000,\,10{,}000,\,15{,}000\}$~\$/MWh by post-processing the existing $(F, C, U)$ outputs leaves P04 as the in-budget winner of the original simplex at all three values, so the 12~GW selection is not an artefact of a single VOLL calibration point within this range.
 
-\subsection{Adequacy Search}
+\subsection{Adequacy Search}\label{subsec:adequacy}
 
-When total capacity is a decision variable, P04's mix achieves adequacy (EUE $\approx 0$) at 15.8~GW, while P03 requires 17.5~GW and P09 requires 18.2~GW. The cheapest adequate portfolio is P04 at \$3,763M.
+Treating total capacity as a one-dimensional decision variable and bisecting on $\mathbb{E}[\text{EUE}(C)] \leq 10$~MWh/year per portfolio, P04 reaches the adequacy threshold at 15.8~GW, P03 at 17.5~GW, and P09 at 18.2~GW. Among these three, each evaluated at its own adequacy point, the cheapest is P04 at \$3{,}763M. This is a per-portfolio construction: every mix is compared at a different total capacity. Section~\ref{sec:extensions} runs the complementary experiment in which the same top-4 portfolios are evaluated at a common fixed capacity (12, 15.8, and 18~GW), which is what allows a direct between-portfolio ranking at each level. The two results answer different questions and are not in tension.
 
 \subsection{UCAP-Normalized Comparison and Empirical ELCC}
 
-To test whether equal-installed-MW comparisons bias the ranking toward high-firm portfolios, six mixes spanning 20\% to 70\% firm are evaluated at equal UCAP (8,000~MW). Even after normalization, P04 remains cheapest (\$9,186M versus \$10,167M for P03). This happens because static ELCC is a peak-period metric that does not capture sustained low-renewable events (Appendix, Figure~\ref{fig:ucap}).
+One reasonable objection to the main result is that the equal-installed-MW design favours firm-heavy mixes. To check this, six portfolios spanning 20\% to 70\% firm are re-evaluated at equal UCAP (8{,}000~MW). P04 is still cheapest (\$9{,}186M against \$10{,}167M for P03), which suggests that static ELCC, a peak-period metric, does not capture the sustained low-renewable events that drive the adequacy penalty in this simulator (Appendix, Figure~\ref{fig:ucap}).
 
-To quantify the mis-pricing, an empirical ELCC experiment (Appendix~\ref{app:elcc_emp}) measures the unserved-energy reduction from adding 1,000~MW of each technology to a stressed 5,000~MW firm baseline, and normalizes against a perfect-firm reference. The empirical values are \textbf{wind 0.25} (vs.\ 0.18 static), \textbf{solar 0.07} (vs.\ 0.35), and \textbf{storage 0.13} (vs.\ 0.50). ELCC is load- and portfolio-dependent, so these numerical factors belong to the stressed-baseline configuration and are not claimed to transfer to the 12,000~MW setting without modification. The qualitative direction does transfer: static ELCC is a peak-period metric and overstates the adequacy contribution of solar and storage whenever meaningful EUE is produced by sustained low-renewable events.
+A separate empirical ELCC experiment (Appendix~\ref{app:elcc_emp}) attempts to quantify the gap. For each technology, 1{,}000~MW is added to a stressed 5{,}000~MW firm-only baseline and the resulting reduction in unserved energy is normalized against a perfect-firm reference. The implied values are wind 0.25 (vs.\ 0.18 static), solar 0.07 (vs.\ 0.35), and storage 0.13 (vs.\ 0.50). These are properties of the stressed baseline and should not be read as the true ELCC of Ontario wind, solar, or storage at the 12~GW portfolio size. For wind and solar, the direction (static values overstate the adequacy contribution of intermittent resources once sustained low-renewable events bind) is consistent with the UCAP-normalized comparison. The storage result is weaker. Storage dispatch here is a threshold heuristic rather than a co-optimized program, which entangles the empirical storage ELCC with the heuristic itself. A more sophisticated dispatch model would very likely narrow the gap with the static value, and no claim about the true adequacy value of storage should be drawn from the present implementation.
 
-\subsection{OCBA Sanity Check and Capital Cost Sensitivity}\label{sec:extensions}
+\subsection{Structural Sensitivity: Boundary and Capacity Probes}\label{sec:extensions}
 
-Two robustness checks close the results section. First, an independent-sampling OCBA procedure \citep{ChenOCBA2000} is run against KN as a sanity check on the 16-portfolio problem across 5 macro-replications at different base seeds. OCBA selects P04 in all 5 runs, matching the KN result (Appendix~\ref{app:ocba}). This is a consistency check on the KN selection rather than a powered comparison of the two procedures. Five macro-reps are too few for a meaningful $P(\text{CS})$ estimate, and the \$750M gap between P04 and the runner-up makes this instance easy for either procedure.
+Two structural features of the main experiment warrant a direct test. P04 sits at the upper firm-share boundary of the simplex, and the 12~GW budget itself is inadequate by Table~\ref{tab:topk} and by the adequacy search. Both are design choices rather than modelling details, and the main result should be reported in a way that makes clear how it depends on them. Appendix~\ref{app:structural} contains the details of the two probes described below.
 
-Second, and more substantively, a $\pm 30\%$ one-at-a-time sensitivity on every capital-cost parameter (nuclear, flex firm, mid-merit, peaker, wind, solar, storage; sources in Appendix~\ref{app:params}) leaves P04 as the best portfolio in all 35 perturbed scenarios. The minimum P04-vs.-P10 gap across the entire sweep is \$700M (Appendix~\ref{app:capsens}), well above the \$50M indifference zone, so the central conclusion is insensitive to plausible capital-cost calibration error. A verification-and-validation suite (Appendix~\ref{app:vv}) independently confirms the simulator's deterministic limit, input moments, outage rates, monotonicity, and CRN variance reduction.
+\paragraph{Boundary probe.} Four portfolios with firm share in $\{0.75, 0.80, 0.85\}$ are constructed outside the original simplex and re-evaluated at 12~GW with 100 CRN replications each. Mean $Y$ falls monotonically as firm share increases, and P$_{b3}$ (85/10/05) reaches \$3{,}553M, which is \$746M cheaper than P04's \$4{,}299M. P04 is not the true in-budget optimum under the 12~GW budget; it was simply the cheapest mix the original simplex could reach.
+
+\paragraph{Capacity sweep.} The top-4 portfolios (P04, P10, P03, P09) are re-evaluated at 12~GW, 15.8~GW, and 18~GW. At 12~GW, P04 is the cheapest of the four. At 15.8~GW and 18~GW, P03 (60/30/10) is the cheapest of the four, beating P04 by \$68M and \$113M respectively. At both higher capacities, the deterministic and stochastic recommendations agree on P03 within this set, and the DBG for the set closes within the indifference zone. This is a within-set result on the four portfolios in the sweep, not a claim over an expanded design space, but it is enough to show that the \$3{,}968M DBG from \S\ref{sec:results}.2 is tied to the inadequate 12~GW scenario rather than to uncertainty-aware evaluation in general.
+
+The two probes sharpen the main result rather than overturning it. In the budget-constrained scenario the system is tail-risk dominated, firm capacity wins, and the in-budget optimum sits beyond the 70\% boundary. Once the budget is relaxed to adequacy, the system becomes cost-dominated, renewable-heavier mixes become cheaper within the set re-evaluated, and the two evaluation methods converge on that set. Two further internal checks (an OCBA consistency note and a $\pm 30\%$ capital-cost sensitivity) and an internal verification suite appear in Appendices~\ref{app:vv}, \ref{app:capsens}, and \ref{app:ocba}.
 
 %==========================================================================
 % SECTION 6: CONCLUSION
 %==========================================================================
 \section{Conclusion}\label{sec:conclusion}
 
-This study presents a simulation-based framework for comparing capacity portfolios under uncertainty. It combines chronological Monte Carlo simulation with empirically calibrated inputs, Common Random Numbers, and the Kim--Nelson ranking and selection procedure.
+In a stylized one-zone system with a fixed 12~GW capacity budget, simulation-based uncertainty-aware evaluation meaningfully changes the planner's recommendation only in the setting where the budget binds. Within the 12~GW budget and the original 16-portfolio simplex, stochastic evaluation picks P04 (70/20/10) and mean-input evaluation picks P03 (60/30/10), giving a Deterministic Benchmark Gap of \$3{,}968M per year. When the same four portfolios are re-evaluated at 15.8~GW and 18~GW, both methods agree on P03 within that set and the DBG closes within the indifference zone. The \$3{,}968M figure is specific to the 12~GW stress scenario and the original simplex; it is not a general planning penalty. A separate boundary probe shows that relaxing the 70\% firm-share ceiling exposes a cheaper 12~GW mix, P$_{b3}$ (85/10/05), which beats P04 by \$746M. P04 is the in-budget winner within the original constrained design, not an absolute optimum.
 
-The central finding is that uncertainty changes the preferred portfolio. A deterministic analysis selects P03 (60/30/10), while the stochastic analysis selects P04 (70/20/10). P04 costs \$4B less per year when uncertainty is included (DBG $= \$3{,}968$M, $p < 0.05$). This result is robust across all eight factorial configurations and persists under UCAP normalization.
+Several design choices in the methodology do real work. The NORTA AR(1) wind model preserves both the empirical Beta marginal and the temporal autocorrelation ($\rho = 0.995$) of Ontario wind data, and this matters because iid sampling would understate the sustained low-output episodes that drive the P04--P03 gap. CRN reduces pairwise-difference variance by a factor of 2 to 35, which is what allows KN to terminate early. The adequacy search and the capacity sweep are complementary: the first solves a one-dimensional stochastic root-finding problem on per-portfolio adequacy, and the second re-runs the same four portfolios at common fixed capacities. Together they expose the scenario dependence of the main result. These findings are consistent with the broad motivation of \citet{ParkBaldick2016}, but the methodology and decision problem differ enough that the present study should not be read as a methodological adaptation of that paper.
 
-Three methodological contributions merit emphasis. First, the NORTA AR(1) input model preserves both the empirical marginal and the temporal autocorrelation ($\rho = 0.995$) of Ontario wind data. This matters because iid sampling underestimates sustained low-output events. Second, CRN achieves between 2$\times$ and 35$\times$ variance reduction on pairwise differences, which substantially accelerates KN elimination. Third, the adequacy search demonstrates stochastic root-finding for minimum reliable capacity, which connects portfolio evaluation to expansion planning.
-
-Together, these results address both research questions. Research Question~1 is answered by the deterministic benchmark gap. The preferred portfolio changes from P03 under deterministic evaluation to P04 under stochastic evaluation, at a cost of \$3{,}968M per year if uncertainty is ignored. Research Question~2 is answered by the factorial analysis. Demand noise and forced outages are the dominant uncertainty factors by main-effect magnitude, but no tested factor combination changes the identity of the best portfolio. The recommendation is therefore robust to uncertainty calibration within the tested range.
-
-These findings are consistent with the central insight of \citet{ParkBaldick2016}, who show that incorporating uncertainty into capacity planning can change the preferred resource mix. Their study establishes this for expansion-timing decisions in a multi-stage stochastic program. The present study establishes the analogous result for portfolio ranking under a fixed-budget constraint. The methodological difference is consequential. Park and Baldick jointly optimize build decisions and uncertainty realizations, whereas this study takes candidate portfolios as given and applies formal statistical selection (KN with CRN) to identify the best performer. The shared conclusion is that deterministic planning can systematically undervalue firm capacity, because it fails to account for the tail risk introduced by correlated renewable shortfalls and generator outages.
-
-Several simplifications in the simulation model are worth noting. The most consequential is the treatment of demand noise as iid. Demand noise is the single largest factor in the $2^3$ factorial (main effect \$2{,}883M), yet it is the only input dimension that does not receive NORTA AR(1) treatment, which is an internal asymmetry in the study. Autocorrelated demand residuals would likely widen the P04-to-P03 gap rather than reverse it, because sustained high-load episodes stress low-firm portfolios more than iid spikes do, but this prediction has not been verified by a direct experiment in this project. Storage dispatch follows a rule-based heuristic rather than full-horizon co-optimization, which likely understates the value of storage approximately uniformly across portfolios. The NORTA AR(1) model assumes that the normal-space $\rho$ equals the target autocorrelation; the induced error is negligible at $\rho = 0.995$ but grows at lower autocorrelations. Finally, forced outages are represented at a discrete 10-unit granularity per sub-type, which is coarser than a continuous-time Markov model.
-
-The natural extension is a full stochastic capacity expansion formulation, which would jointly optimize the portfolio mix and the total capacity subject to an adequacy constraint. The adequacy search in this study solves a one-dimensional version of that problem, and the multi-dimensional formulation connects directly to the framework of \citet{ParkBaldick2016}.
+Several simplifications remain. The most consequential is the treatment of demand noise as iid Gaussian around an OLS harmonic fit. Demand is simultaneously the largest single factor in the top-4 factorial (main effect \$2{,}883M) and the only input dimension that does not receive NORTA AR(1) treatment, an asymmetry that no direct experiment here has bounded. Whether autocorrelated demand residuals would widen or reverse the 12~GW DBG is not a question this study can answer, and it is flagged as a limitation rather than as a prediction. Storage dispatch is a threshold heuristic, which entangles the empirical storage ELCC result with the dispatch rule itself; no claim about the true adequacy value of storage should be taken from the present implementation. NORTA AR(1) approximates normal-space $\rho$ by the target autocorrelation, with negligible error at $\rho = 0.995$, and forced outages are represented at a 10-unit per-sub-type discretization that is coarser than a continuous-time Markov model. These components are verified only against their own analytical targets (Appendix~\ref{app:vv}), so the study claims internal consistency but not external validation against a ground-truth system. The natural extension is a full stochastic capacity-expansion formulation that jointly treats the capacity budget and the resource mix; given the scenario dependence observed here, the value of uncertainty-aware evaluation in that fuller problem is likely concentrated where the budget constraint binds.
 
 %==========================================================================
 % REFERENCES
@@ -444,26 +414,26 @@ Storage (4h) & 50\% & Duration-limited \\
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.80\textwidth]{figures/fig3_y_distributions.png}
+\includegraphics[width=0.70\textwidth]{figures/fig3_y_distributions.png}
 \caption{Distribution of $Y_{ij}$ for top-4 portfolios. P03 and P09 exhibit heavy right tails from high-penalty replications during sustained low-renewable periods.}\label{fig:box}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.80\textwidth]{figures/fig7_crn_efficiency.png}
+\includegraphics[width=0.85\textwidth]{figures/fig7_crn_efficiency.png}
 \caption{CRN variance reduction: pairwise difference variance under independent vs.\ CRN sampling. Efficiency ranges from 2$\times$ (P04 vs.\ P09) to 35$\times$ (P03 vs.\ P09).}\label{fig:crn}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.82\textwidth]{figures/fig12_ucap_comparison.png}
+\includegraphics[width=0.90\textwidth]{figures/fig12_ucap_comparison.png}
 \caption{UCAP-normalized comparison at equal effective capacity (8~GW UCAP). Left: mean total cost per mix; right: cost decomposition. P04 remains cheapest after normalization.}\label{fig:ucap}
 \end{figure}
 
 
-\section{Verification and Validation}\label{app:vv}
+\section{Internal Verification Suite}\label{app:vv}
 
-\texttt{src/verification.py}. Five automated checks, all pass.
+\texttt{src/verification.py}. Five automated internal-consistency checks, all pass. These are internal verification, not external validation: they show that the simulator behaves as specified and that its stochastic machinery reproduces its own analytical targets. They do not validate the stylized one-zone model against a ground-truth system.
 
 \begin{table}[H]
 \centering
@@ -516,36 +486,47 @@ CRN variance reduction on P04 $-$ P10
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.68\textwidth]{figures/fig_elcc_empirical.png}
+\includegraphics[width=0.72\textwidth]{figures/fig_elcc_empirical.png}
 \caption{Empirical vs.\ static ELCC, 1,000 MW dose on the 5,000 MW stressed firm baseline. Solar and storage come in at ${\sim}1/5$ and ${\sim}1/4$ of their static planning values.}\label{fig:elcc_emp}
 \end{figure}
 
 
-\section{OCBA Sanity Check}\label{app:ocba}
+\section{OCBA Consistency Note}\label{app:ocba}
 
-\texttt{src/ocba.py}. OCBA \citep{ChenOCBA2000} with classical independent sampling is run against KN (with CRN) across five macro-replications at different base seeds. The purpose is a consistency check on the KN selection, not a powered comparison of the two procedures. Five macro-reps are too few for a meaningful $P(\text{CS})$ estimate, and the ${\approx}\$750$M gap between P04 and the runner-up makes the selection easy for either method. In each macro-rep, KN terminates naturally and OCBA is given a matching simulation-call budget.
+\texttt{src/ocba.py}. OCBA \citep{ChenOCBA2000} was run against KN across five macro-replications at different base seeds purely as a consistency check on the 12~GW / original-simplex KN selection. At a matched simulation-call budget (mean 528 calls), OCBA selects P04 in 5/5 runs, matching KN. Five macro-reps are too few for a meaningful $P(\text{CS})$ estimate and the large gap between P04 and its runner-up within the original simplex makes selection easy for either method, so this is \emph{not} a powered procedural comparison and no performance claim between KN and OCBA is made. The check is reported only because an independent R\&S procedure reaching the same conclusion adds confidence that the KN result is not an implementation artefact.
 
-\begin{table}[H]
-\centering
-\caption{OCBA sanity check (5 macro-reps, $k=16$, $n_0 = 30$). Ground-truth best P04 from the baseline KN run.}\label{tab:ocba}
-\small
-\begin{tabular}{lrrr}
-\toprule
-Procedure & Selected P04 & Mean calls & Samples on P04 (avg) \\
-\midrule
-KN (with CRN)          & 5/5 & 528 & 54.0 (10.2\%) \\
-OCBA (independent)     & 5/5 & 528 & 78.0 (14.8\%) \\
-\bottomrule
-\end{tabular}
-\end{table}
 
-Both procedures select P04 in every run on this instance. This is consistent with the KN result but does not distinguish the methods; the allocation profiles differ sharply (Figure~\ref{fig:ocba_alloc}), which is qualitative evidence of OCBA's concentration behaviour but not a performance claim.
+\section{Structural Sensitivity: Boundary and Capacity}\label{app:structural}
+
+\texttt{src/deeper\_sensitivity.py}. Two probes test whether the main 12~GW / 70\%-firm-upper-bound result is a structural artefact.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.78\textwidth]{figures/fig_ocba_allocation.png}
-\caption{Average sample allocation per portfolio (5 macro-reps), ordered by baseline Mean $Y$. KN elevates both finalists (P04, P01) to 54 samples each; OCBA places 78 on P04 alone.}\label{fig:ocba_alloc}
+\begin{minipage}{0.50\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig_boundary.png}
+\end{minipage}\hfill
+\begin{minipage}{0.50\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig_capacity_sweep.png}
+\end{minipage}
+\caption{Left: boundary probe at 12~GW. P$_{b3}$ (85/10/05) beats P04 by \$746M. Right: capacity sweep; winners ($\star$) flip from P04 at 12~GW to P03 at 15.8~GW and 18~GW.}\label{fig:structural}
 \end{figure}
+
+\begin{table}[H]
+\centering
+\caption{DBG at adequate capacity. Deterministic uses zero demand noise, zero FOR, fixed-mean renewables; stochastic uses 100 CRN replications.}\label{tab:dbg_capacity}
+\small
+\begin{tabular}{lccc}
+\toprule
+Total capacity & Deterministic winner & Stochastic winner & DBG (\$M) \\
+\midrule
+12.0 GW (main)     & P03 (60/30/10) & P04 (70/20/10) & 3{,}968 \\
+15.8 GW (P04 adequate) & P03 (60/30/10) & P03 (60/30/10) & 0 \\
+18.0 GW (all adequate) & P03 (60/30/10) & P03 (60/30/10) & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 \section{Code Architecture and AI Disclosure}\label{app:code}

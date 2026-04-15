@@ -108,6 +108,8 @@ INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\enumitem\enum
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\enumitem\enumitem.sty
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\titlesec\titlesec.sty
+INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\titlesec\titlesec.sty
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT .\main_5.aux
@@ -163,11 +165,11 @@ INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cms
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\Omar Elsawi\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT .\figures\fig2_kn_elimination.png
 INPUT .\figures\fig2_kn_elimination.png
 INPUT .\figures\fig2_kn_elimination.png
@@ -184,13 +186,6 @@ INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfon
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
-INPUT .\figures\fig8_cost_decomposition.png
-INPUT .\figures\fig8_cost_decomposition.png
-INPUT .\figures\fig8_cost_decomposition.png
-INPUT .\figures\fig8_cost_decomposition.png
-INPUT .\figures\fig8_cost_decomposition.png
-INPUT .\figures\fig8_cost_decomposition.png
-INPUT .\figures\fig8_cost_decomposition.png
 INPUT .\figures\fig6_dbg.png
 INPUT .\figures\fig6_dbg.png
 INPUT .\figures\fig6_dbg.png
@@ -273,13 +268,20 @@ INPUT .\figures\fig_elcc_empirical.png
 INPUT .\figures\fig_elcc_empirical.png
 INPUT .\figures\fig_elcc_empirical.png
 INPUT .\figures\fig_elcc_empirical.png
-INPUT .\figures\fig_ocba_allocation.png
-INPUT .\figures\fig_ocba_allocation.png
-INPUT .\figures\fig_ocba_allocation.png
-INPUT .\figures\fig_ocba_allocation.png
-INPUT .\figures\fig_ocba_allocation.png
-INPUT .\figures\fig_ocba_allocation.png
-INPUT .\figures\fig_ocba_allocation.png
+INPUT .\figures\fig_boundary.png
+INPUT .\figures\fig_boundary.png
+INPUT .\figures\fig_boundary.png
+INPUT .\figures\fig_boundary.png
+INPUT .\figures\fig_boundary.png
+INPUT .\figures\fig_boundary.png
+INPUT .\figures\fig_boundary.png
+INPUT .\figures\fig_capacity_sweep.png
+INPUT .\figures\fig_capacity_sweep.png
+INPUT .\figures\fig_capacity_sweep.png
+INPUT .\figures\fig_capacity_sweep.png
+INPUT .\figures\fig_capacity_sweep.png
+INPUT .\figures\fig_capacity_sweep.png
+INPUT .\figures\fig_capacity_sweep.png
 INPUT main_5.aux
 INPUT .\main_5.out
 INPUT .\main_5.out

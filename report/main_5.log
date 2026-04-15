@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.19)  14 APR 2026 18:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.19)  14 APR 2026 21:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -290,30 +290,41 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box56
 \@float@everytoks=\toks26
 \@floatcapt=\box57
+) (C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box58
+\beforetitleunit=\skip58
+\aftertitleunit=\skip59
+\ttl@plus=\dimen194
+\ttl@minus=\dimen195
+\ttl@toksa=\toks27
+\titlewidth=\dimen196
+\titlewidthlast=\dimen197
+\titlewidthfirst=\dimen198
 ) (C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count320
 ) (main_5.aux)
 \openout1 = `main_5.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -352,23 +363,23 @@ LaTeX Font Info:    ... okay on input line 22.
 (C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count321
-\scratchdimen=\dimen194
-\scratchbox=\box58
+\scratchdimen=\dimen199
+\scratchbox=\box59
 \nofMPsegments=\count322
 \nofMParguments=\count323
-\everyMPshowfont=\toks27
+\everyMPshowfont=\toks28
 \MPscratchCnt=\count324
-\MPscratchDim=\dimen195
+\MPscratchDim=\dimen256
 \MPnumerator=\count325
 \makeMPintoPDFobject=\count326
-\everyMPtoPDFconversion=\toks28
+\everyMPtoPDFconversion=\toks29
 ) (C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 22.
+Package hyperref Info: Link coloring OFF on input line 28.
  (main_5.out) (main_5.out)
 \@outlinefile=\write3
 \openout3 = `main_5.out'.
@@ -376,125 +387,119 @@ Package hyperref Info: Link coloring OFF on input line 22.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
  (C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
  (C:\Users\Omar Elsawi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/Omar Elsawi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5]
-<figures/fig2_kn_elimination.png, id=234, 780.0342pt x 453.8556pt>
+<figures/fig2_kn_elimination.png, id=235, 780.0342pt x 453.8556pt>
 File: figures/fig2_kn_elimination.png Graphic file (type png)
 <use figures/fig2_kn_elimination.png>
-Package pdftex.def Info: figures/fig2_kn_elimination.png  used on input line 181.
-(pdftex.def)             Requested size: 338.22418pt x 196.78847pt.
-<figures/fig8_cost_decomposition.png, id=236, 568.524pt x 351.714pt>
-File: figures/fig8_cost_decomposition.png Graphic file (type png)
-<use figures/fig8_cost_decomposition.png>
-Package pdftex.def Info: figures/fig8_cost_decomposition.png  used on input line 202.
-(pdftex.def)             Requested size: 352.31625pt x 217.96382pt.
+Package pdftex.def Info: figures/fig2_kn_elimination.png  used on input line 187.
+(pdftex.def)             Requested size: 366.40834pt x 213.1875pt.
  [6] [7 <./figures/fig2_kn_elimination.png>]
-<figures/fig6_dbg.png, id=258, 421.0932pt x 324.7332pt>
+<figures/fig6_dbg.png, id=259, 421.0932pt x 324.7332pt>
 File: figures/fig6_dbg.png Graphic file (type png)
 <use figures/fig6_dbg.png>
-Package pdftex.def Info: figures/fig6_dbg.png  used on input line 249.
-(pdftex.def)             Requested size: 328.82707pt x 253.59808pt.
- [8 <./figures/fig8_cost_decomposition.png>]
-<figures/fig4_tornado.png, id=267, 597.432pt x 286.1892pt>
+Package pdftex.def Info: figures/fig6_dbg.png  used on input line 223.
+(pdftex.def)             Requested size: 281.85587pt x 217.3719pt.
+ [8 <./figures/fig6_dbg.png>]
+<figures/fig4_tornado.png, id=268, 597.432pt x 286.1892pt>
 File: figures/fig4_tornado.png Graphic file (type png)
 <use figures/fig4_tornado.png>
-Package pdftex.def Info: figures/fig4_tornado.png  used on input line 261.
+Package pdftex.def Info: figures/fig4_tornado.png  used on input line 235.
 (pdftex.def)             Requested size: 375.80544pt x 180.02939pt.
- [9 <./figures/fig6_dbg.png>]
-Overfull \hbox (6.26105pt too wide) in paragraph at lines 277--278
-[]\OT1/cmr/m/n/10.95 To quan-tify the mis-pricing, an em-pir-i-cal ELCC ex-per-i-ment (Ap-pendix []H[]) mea-sures the unserved-
- []
-
-[10 <./figures/fig4_tornado.png>] [11] (main_5.bbl) [12] [13]
-<figures/input_demand_fit.png, id=311, 867.24pt x 578.16pt>
+ [9 <./figures/fig4_tornado.png>] [10] (main_5.bbl [11]) [12] [13]
+<figures/input_demand_fit.png, id=312, 867.24pt x 578.16pt>
 File: figures/input_demand_fit.png Graphic file (type png)
 <use figures/input_demand_fit.png>
-Package pdftex.def Info: figures/input_demand_fit.png  used on input line 426.
+Package pdftex.def Info: figures/input_demand_fit.png  used on input line 396.
 (pdftex.def)             Requested size: 375.80544pt x 250.53596pt.
  [14]
-<figures/input_wind_fit.png, id=318, 722.7pt x 289.08pt>
+<figures/input_wind_fit.png, id=319, 722.7pt x 289.08pt>
 File: figures/input_wind_fit.png Graphic file (type png)
 <use figures/input_wind_fit.png>
-Package pdftex.def Info: figures/input_wind_fit.png  used on input line 432.
+Package pdftex.def Info: figures/input_wind_fit.png  used on input line 402.
 (pdftex.def)             Requested size: 375.80544pt x 150.32245pt.
-<figures/input_solar_fit.png, id=319, 722.7pt x 289.08pt>
+<figures/input_solar_fit.png, id=320, 722.7pt x 289.08pt>
 File: figures/input_solar_fit.png Graphic file (type png)
 <use figures/input_solar_fit.png>
-Package pdftex.def Info: figures/input_solar_fit.png  used on input line 438.
+Package pdftex.def Info: figures/input_solar_fit.png  used on input line 408.
 (pdftex.def)             Requested size: 375.80544pt x 150.32245pt.
  [15 <./figures/input_demand_fit.png> <./figures/input_wind_fit.png>]
-<figures/fig3_y_distributions.png, id=328, 540.0978pt x 327.1422pt>
+<figures/fig3_y_distributions.png, id=329, 540.0978pt x 327.1422pt>
 File: figures/fig3_y_distributions.png Graphic file (type png)
 <use figures/fig3_y_distributions.png>
-Package pdftex.def Info: figures/fig3_y_distributions.png  used on input line 447.
-(pdftex.def)             Requested size: 375.80544pt x 227.62523pt.
-<figures/fig7_crn_efficiency.png, id=329, 857.604pt x 423.984pt>
+Package pdftex.def Info: figures/fig3_y_distributions.png  used on input line 417.
+(pdftex.def)             Requested size: 328.82707pt x 199.17207pt.
+<figures/fig7_crn_efficiency.png, id=330, 857.604pt x 423.984pt>
 File: figures/fig7_crn_efficiency.png Graphic file (type png)
 <use figures/fig7_crn_efficiency.png>
-Package pdftex.def Info: figures/fig7_crn_efficiency.png  used on input line 453.
-(pdftex.def)             Requested size: 375.80544pt x 185.79013pt.
+Package pdftex.def Info: figures/fig7_crn_efficiency.png  used on input line 423.
+(pdftex.def)             Requested size: 399.29463pt x 197.40282pt.
  [16 <./figures/input_solar_fit.png> <./figures/fig3_y_distributions.png>]
-<figures/fig12_ucap_comparison.png, id=337, 1146.684pt x 498.1812pt>
+<figures/fig12_ucap_comparison.png, id=338, 1146.684pt x 498.1812pt>
 File: figures/fig12_ucap_comparison.png Graphic file (type png)
 <use figures/fig12_ucap_comparison.png>
-Package pdftex.def Info: figures/fig12_ucap_comparison.png  used on input line 459.
-(pdftex.def)             Requested size: 385.20255pt x 167.34973pt.
+Package pdftex.def Info: figures/fig12_ucap_comparison.png  used on input line 429.
+(pdftex.def)             Requested size: 422.77664pt x 183.67801pt.
 
-Underfull \hbox (badness 1360) in paragraph at lines 479--480
+Underfull \hbox (badness 1360) in paragraph at lines 449--450
 []\OT1/cmr/m/n/10 Input mean re-cov-ery (50
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 483--484
+Underfull \hbox (badness 3148) in paragraph at lines 453--454
 []\OT1/cmr/m/n/10 Outage-rate re-cov-ery (50
  []
 
 [17 <./figures/fig7_crn_efficiency.png> <./figures/fig12_ucap_comparison.png>]
-<figures/fig_capital_sensitivity.png, id=346, 513.117pt x 262.70145pt>
+<figures/fig_capital_sensitivity.png, id=347, 513.117pt x 262.70145pt>
 File: figures/fig_capital_sensitivity.png Graphic file (type png)
 <use figures/fig_capital_sensitivity.png>
-Package pdftex.def Info: figures/fig_capital_sensitivity.png  used on input line 508.
+Package pdftex.def Info: figures/fig_capital_sensitivity.png  used on input line 478.
 (pdftex.def)             Requested size: 338.22418pt x 173.16702pt.
  [18 <./figures/fig_capital_sensitivity.png>]
-<figures/fig_elcc_empirical.png, id=355, 510.58755pt x 265.2309pt>
+<figures/fig_elcc_empirical.png, id=356, 510.58755pt x 265.2309pt>
 File: figures/fig_elcc_empirical.png Graphic file (type png)
 <use figures/fig_elcc_empirical.png>
-Package pdftex.def Info: figures/fig_elcc_empirical.png  used on input line 519.
-(pdftex.def)             Requested size: 319.42996pt x 165.93887pt.
- [19 <./figures/fig_elcc_empirical.png>]
-<figures/fig_ocba_allocation.png, id=366, 582.85754pt x 264.86955pt>
-File: figures/fig_ocba_allocation.png Graphic file (type png)
-<use figures/fig_ocba_allocation.png>
-Package pdftex.def Info: figures/fig_ocba_allocation.png  used on input line 546.
-(pdftex.def)             Requested size: 366.40834pt x 166.50899pt.
- [20 <./figures/fig_ocba_allocation.png>] (main_5.aux)
+Package pdftex.def Info: figures/fig_elcc_empirical.png  used on input line 489.
+(pdftex.def)             Requested size: 338.22418pt x 175.70045pt.
+<figures/fig_boundary.png, id=358, 538.05016pt x 263.0628pt>
+File: figures/fig_boundary.png Graphic file (type png)
+<use figures/fig_boundary.png>
+Package pdftex.def Info: figures/fig_boundary.png  used on input line 507.
+(pdftex.def)             Requested size: 234.8775pt x 114.83278pt.
+<figures/fig_capacity_sweep.png, id=359, 552.50415pt x 277.5168pt>
+File: figures/fig_capacity_sweep.png Graphic file (type png)
+<use figures/fig_capacity_sweep.png>
+Package pdftex.def Info: figures/fig_capacity_sweep.png  used on input line 511.
+(pdftex.def)             Requested size: 234.8775pt x 117.97482pt.
+ [19 <./figures/fig_elcc_empirical.png>] [20 <./figures/fig_boundary.png> <./figures/fig_capacity_sweep.png>] (main_5.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main_5.out' has not changed.
-(rerunfilecheck)             Checksum: 811A634FF46227BC324402EB30F1A248;5667.
+(rerunfilecheck)             Checksum: C571ADB1833603DF870F6691A34BC339;6408.
  ) 
 Here is how much of TeX's memory you used:
- 12616 strings out of 467867
- 201327 string characters out of 5415394
- 626026 words of memory out of 5000000
- 41249 multiletter control sequences out of 15000+600000
+ 12913 strings out of 467867
+ 205336 string characters out of 5415394
+ 630879 words of memory out of 5000000
+ 41548 multiletter control sequences out of 15000+600000
  640725 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,79p,1843b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,79p,1665b,628s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Omar Elsawi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Omar Elsawi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Omar Elsawi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main_5.pdf (20 pages, 1348675 bytes).
+Output written on main_5.pdf (20 pages, 1358818 bytes).
 PDF statistics:
- 487 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
- 338 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 489 PDF objects out of 1000 (max. 8388607)
+ 97 named destinations out of 1000 (max. 500000)
+ 346 words of extra memory for PDF output out of 10000 (max. 10000000)
 
